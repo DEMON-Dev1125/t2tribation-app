@@ -152,7 +152,7 @@ ion-avatar {
   width: 100%;
   align-items: center;
   margin: auto;
-  position: absolute;
+  // position: absolute;
   top: 32.5%;
 }
 
@@ -266,16 +266,14 @@ ion-segment-button {
 // }
 
 .profileIcon {
-  padding: 2%;
-  padding-right: 10%;
-  text-align: center;
-  // display: flex;
-  align-content: center;
-  text-align: center;
-  justify-content: center;
+  display: flex;
+  padding: 15px 20px;
+  border: 1px solid #9e9bb0;
+  border-radius: 12px;
+  float: left;
 
   ion-icon {
-    color: #fff;
+    color: #0d0439;
     font-size: x-large;
     padding: 0px;
     margin: 0px;
@@ -283,27 +281,42 @@ ion-segment-button {
   }
 
   .text {
-    font-size: small;
+    font-size: 16px;
+    padding-left: 5px;
+    color: #0d0439;
+  }
+}
+.messageIcon {
+  float: right;
+  display: flex;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid #ec5529;
+  background-color: #ec5529;
+
+  ion-icon {
+    margin: 0px;  
     clear: both;
-    width: fit-content;
+    padding: 0px;
+    color: #ffffff;
+    font-size: x-large;
+  }
+
+  .text {
+    font-size: 16px;
+    color: #ffffff;
+    padding-left: 5px;
   }
 }
 
 .unfriendBar {
-  width: fit-content;
-  position: absolute;
-  color: #fff;
-  bottom: 62.5%;
-  display: flex;
+  color: #0d0439;
   padding: 0px 3%;
   z-index: 999999;
-  // background  : #00000092;
-  // --background: #00000092;
 }
 
 .personal_Media {
   width: 95%;
-  // padding-left   : 5%;
   margin-left: auto;
   overflow: hidden;
   align-items: center;

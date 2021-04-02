@@ -80,7 +80,7 @@ export class ProfilePage implements OnInit {
   cancelString = 'Cancel';
   okayString = 'OK';
   requestedString = 'Requested';
-  addFriendString = 'Add friend';
+  addFriendString = 'Friends';
   editString = 'Edit';
   deleteString = 'Delete';
   reportString = 'Report';
@@ -108,6 +108,7 @@ export class ProfilePage implements OnInit {
   cancelGuardReqLinkString = 'Cancel Link';
   sureDeleteString = 're you sure you want to delete this post?';
   yesString = 'Yes';
+  messageString = 'Message';
   isGuardian = false;
   guardianMinorFlag = false;
   acceptRejGuardAction = false;
@@ -626,7 +627,7 @@ export class ProfilePage implements OnInit {
     });
     return await modal.present();
   }
-  deleteGuardReq(reqId, n) {
+  deleteGuardReq(reqId) {
     this.apiService.rejectGuardianRequest(reqId, this.userDetail.id).subscribe((res: any) => {
       if (res) {
         this.getProfileDataOfUser();

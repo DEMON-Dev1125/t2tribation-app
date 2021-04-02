@@ -190,7 +190,7 @@
               button
               (click)="goToProfile(userDetail.id)"
             >
-              <!-- {{profileFirstname}}&nbsp;{{profileLastName}} -->
+              {{profileFirstname}}&nbsp;{{profileLastName}}
             </div>
             <!-- <ion-input [(ngModel)]="userTeamHistory.sportsName" placeholder="{{selectSportString}}" readonly="true">
           <img src="../../../assets/sports/{{sportsIcon}}.png"
@@ -801,8 +801,9 @@
 
         <!-- end Feeds -->
 
+        <!-- *ngIf="limitReached===false && noPost!==true" -->
         <ion-infinite-scroll
-          *ngIf="limitReached===false && noPost!==true"
+          *ngIf="limitReached===false"
           threshold="100px"
           (ionInfinite)="loadMorePost($event)"
         >

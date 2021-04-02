@@ -62,13 +62,15 @@
       </ion-item>
     </div>
   </div>
+
+  <!-- add person -->
   <div
     class="unfriendBar"
     *ngIf="userDetail.id!==profileId && isMinor === true"
   >
     <div class="profileIcon" *ngIf="sendGuardRequest === true">
       <ion-icon
-        name="person-add-sharp"
+        name="person-add-outline"
         (click)="sendGuardianReq(userProfileData.baseInfo.id, userProfileData.guardianRequest.id)"
       >
       </ion-icon>
@@ -76,7 +78,7 @@
     </div>
     <div class="profileIcon" *ngIf="cancelSentGuardreq === true">
       <ion-icon
-        name="alert-sharp"
+        name="alert-outline"
         (click)="cancelGuardreq(userProfileData.guardianRequest.id)"
       >
       </ion-icon>
@@ -84,7 +86,7 @@
     </div>
     <div class="profileIcon" *ngIf="cancelGuardianMinorLink === true">
       <ion-icon
-        name="alert-sharp"
+        name="alert-outline"
         (click)="cancelGuardLink(userProfileData.baseInfo.id)"
       >
       </ion-icon>
@@ -100,7 +102,7 @@
       *ngIf="sendRequest === true"
       (click)="sendFriendReq(userProfileData.baseInfo.id)"
     >
-      <ion-icon name="person-add-sharp"> </ion-icon>
+      <ion-icon name="person-add-outline"> </ion-icon>
       <div class="text">{{addFriendString}}</div>
     </div>
     <div
@@ -108,7 +110,7 @@
       *ngIf="cancelRequest === true"
       (click)="cancelFriendreq(userProfileData.baseInfo.id)"
     >
-      <ion-icon name="alert-sharp"> </ion-icon>
+      <ion-icon name="alert-outline"> </ion-icon>
       <div class="text">{{requestedString}}</div>
     </div>
     <div
@@ -116,7 +118,7 @@
       *ngIf="unfriend === true"
       (click)="unFriend(userProfileData.baseInfo.id, userProfileData.baseInfo.first_name)"
     >
-      <ion-icon name="person-remove-sharp"> </ion-icon>
+      <ion-icon name="person-remove-outline"> </ion-icon>
       <div class="text">{{unfriendString}}</div>
     </div>
     <div
@@ -170,7 +172,7 @@
       *ngIf="cancelSentGuardreq === true"
       (click)="cancelGuardreq(userProfileData.guardianRequest.id)"
     >
-      <ion-icon name="alert-sharp"> </ion-icon>
+      <ion-icon name="alert-outline"> </ion-icon>
       <div class="text">{{cancelGuardReqString}}</div>
     </div>
     <div
@@ -178,10 +180,20 @@
       *ngIf="cancelGuardianMinorLink === true"
       (click)="cancelGuardLink(userProfileData.baseInfo.id)"
     >
-      <ion-icon name="alert-sharp"> </ion-icon>
+      <ion-icon name="alert-outline"> </ion-icon>
       <div class="text">{{cancelGuardReqLinkString}}</div>
     </div>
+
+    <div class="messageIcon" *ngIf="userDetail.id!==profileId ">
+      <ion-icon
+        name="chatbox-ellipses-outline"
+        (click)="sendMessage()"
+      ></ion-icon>
+      <div class="text">{{messageString}}</div>
+    </div>
   </div>
+
+  <!-- add person -->
 
   <div class="avtr_and_name" *ngIf="userProfileDetail">
     <div
@@ -234,28 +246,6 @@
     </div>
   </div>
 
-  <div
-    style="text-align: right; width: 100%; position: absolute"
-    *ngIf="userDetail.id!==profileId "
-  >
-    <ion-button
-      style="
-        --color: #ec5529;
-        color: #ec5529;
-        font-size: large;
-        --background-activated: #f7932049 !important;
-        --background-focused: #f7932049 !important;
-        --background-hover: #f7932049 !important;
-        --ripple-color: #f7932049 !important;
-      "
-      class="noBackgroundItem"
-    >
-      <ion-icon
-        src="../../../assets/iconsSvg/chat-fri.svg"
-        (click)="sendMessage()"
-      ></ion-icon>
-    </ion-button>
-  </div>
   <div class="topBar container">
     <ion-segment
       (ionChange)="segmentChanged($event)"
@@ -618,18 +608,21 @@
                 button
                 (click)="commentPost(feed, i)"
               >
+                <!-- src="../../../assets/iconsSvg/chatbubble-ellipses-outline.svg" -->
                 <ion-icon
-                  src="../../../assets/iconsSvg/chatbubble-ellipses-outline.svg"
+                  style="color: #9e9bb0"
+                  name="chatbox-ellipses-outline"
                   *ngIf="feed.commented===0"
                 >
                 </ion-icon>
                 <span *ngIf="feed.comments === 0">
                   <ion-text style="color: #9e9bb0"> &nbsp;Comments </ion-text>
                 </span>
+                <!-- src="../../../assets/iconsSvg/chatbubble-ellipses.svg" -->
                 <ion-icon
-                  src="../../../assets/iconsSvg/chatbubble-ellipses.svg"
+                  name="chatbox-ellipses-outline"
                   *ngIf="feed.commented===1"
-                  style="color: #454545"
+                  style="color: #9e9bb0"
                 ></ion-icon>
                 <span *ngIf="feed.comments > 0">
                   <ion-text style="color: #9e9bb0"> &nbsp;Comments </ion-text>
@@ -732,20 +725,6 @@
       </div>
     </div>
     <div class="frnd_pad" *ngIf="noFriends===false" style="padding-top: 2%">
-      <!-- <div class="search_bar">
-        <ion-searchbar
-          class="search_bar ion-no-padding"
-          color="light"
-          [(ngModel)]="searchFriendsTerm"
-          mode="ios"
-          (ionChange)="setFilteredItem(searchFriendsTerm)"
-          placeholder="{{searchString}}"
-          showCancelButton="never"
-          style="width: 95%; margin: auto"
-        >
-        </ion-searchbar>
-      </div> -->
-
       <div class="container">
         <ion-list *ngIf="myfrndsList">
           <ion-item-sliding
@@ -787,13 +766,12 @@
                 </p>
               </ion-label>
               <ion-icon
-                src="../../../assets/iconsSvg/chat-fri.svg"
+                name="chatbox-ellipses-outline"
                 (click)="rootMsgPage(frnd.id)"
               >
               </ion-icon>
-              <!-- <img src="../../../assets/iconsSvg/chat-fri.svg"/> -->
             </ion-item>
-            <ion-item-options>
+            <!-- <ion-item-options>
               <ion-button
                 class="unfrnd-btn capital ion-text-wrap"
                 color="danger"
@@ -801,7 +779,8 @@
                 (click)="unFriend(frnd.id,frnd.name)"
                 >{{unfriendString}}</ion-button
               >
-            </ion-item-options>
+              <div class="text">{{messageString}}</div>
+            </ion-item-options> -->
           </ion-item-sliding>
         </ion-list>
       </div>
