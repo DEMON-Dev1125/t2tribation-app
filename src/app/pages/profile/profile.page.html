@@ -63,7 +63,63 @@
     </div>
   </div>
 
+  <div class="avtr_and_name" *ngIf="userProfileDetail">
+    <div
+      class="ion-text-center"
+      style="display: flex; justify-content: center; position: relative"
+    >
+      <ion-avatar style="display: flex; width: 100px; height: 100px">
+        <img
+          style="border: 5px solid #fff"
+          class="profile-img"
+          *ngIf="userProfileDetail.profile_img_url!=''"
+          src="{{environment.apiUrl}}v1/api/post/imagecall_mobile_url?imagepath=profile/{{userProfileDetail.id}}/{{profilepicUrl}}"
+          (click)="viewProfileImage(profilepicUrl,'image')"
+        />
+        <img
+          class="profile-img"
+          *ngIf="userProfileDetail.profile_img_url==''"
+          src="../../../assets/defaultProfile.png"
+        />
+      </ion-avatar>
+      <div
+        class="myProfile_av"
+        button
+        (click)="presentActionSheetProfile()"
+        *ngIf="userDetail.id===profileId && userDetail.scout_status!=='active'"
+      >
+        <ion-icon name="camera"></ion-icon>
+      </div>
+    </div>
+
+    <div style="width: 100%; text-align: center">
+      <div style="color: #0d0439; font-size: 24px; font-weight: bold">
+        <b>{{userProfileDetail.first_name}} {{userProfileDetail.last_name}}</b>
+      </div>
+      <small
+        style="color: #000; display: block; font-size: 12px"
+        *ngIf="userProfileDetail.id"
+      >
+        <ion-icon name="location-outline" style="color: black"></ion-icon>&nbsp;
+        <span style="text-transform: capitalize"
+          >{{userProfileDetail.city}}</span
+        >
+        <span *ngIf="userProfileDetail.stateProvince!==''">
+          , {{userProfileDetail.stateProvince}}
+        </span>
+        <span *ngIf="userProfileDetail.countryName!==''">
+          , {{userProfileDetail.countryName}}
+        </span>
+      </small>
+    </div>
+  </div>
+
   <!-- add person -->
+
+  <div
+    class="myfriendBar"
+    *ngIf="userDetail.id===profileId && isMinor === false"
+  ></div>
   <div
     class="unfriendBar"
     *ngIf="userDetail.id!==profileId && isMinor === true"
@@ -184,67 +240,17 @@
       <div class="text">{{cancelGuardReqLinkString}}</div>
     </div>
 
-    <div class="messageIcon" *ngIf="userDetail.id!==profileId ">
-      <ion-icon
-        name="chatbox-ellipses-outline"
-        (click)="sendMessage()"
-      ></ion-icon>
+    <div
+      (click)="sendMessage()"
+      class="messageIcon"
+      *ngIf="userDetail.id!==profileId "
+    >
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
       <div class="text">{{messageString}}</div>
     </div>
   </div>
 
   <!-- add person -->
-
-  <div class="avtr_and_name" *ngIf="userProfileDetail">
-    <div
-      class="ion-text-center"
-      style="display: flex; justify-content: center; position: relative"
-    >
-      <ion-avatar style="display: flex; width: 100px; height: 100px">
-        <img
-          style="border: 5px solid #fff"
-          class="profile-img"
-          *ngIf="userProfileDetail.profile_img_url!=''"
-          src="{{environment.apiUrl}}v1/api/post/imagecall_mobile_url?imagepath=profile/{{userProfileDetail.id}}/{{profilepicUrl}}"
-          (click)="viewProfileImage(profilepicUrl,'image')"
-        />
-        <img
-          class="profile-img"
-          *ngIf="userProfileDetail.profile_img_url==''"
-          src="../../../assets/defaultProfile.png"
-        />
-      </ion-avatar>
-      <div
-        class="myProfile_av"
-        button
-        (click)="presentActionSheetProfile()"
-        *ngIf="userDetail.id===profileId && userDetail.scout_status!=='active'"
-      >
-        <ion-icon name="camera"></ion-icon>
-      </div>
-    </div>
-
-    <div style="width: 100%; text-align: center">
-      <div style="color: #0d0439; font-size: 24px; font-weight: bold">
-        <b>{{userProfileDetail.first_name}} {{userProfileDetail.last_name}}</b>
-      </div>
-      <small
-        style="color: #000; display: block; font-size: 12px"
-        *ngIf="userProfileDetail.id"
-      >
-        <ion-icon name="location-outline" style="color: black"></ion-icon>&nbsp;
-        <span style="text-transform: capitalize"
-          >{{userProfileDetail.city}}</span
-        >
-        <span *ngIf="userProfileDetail.stateProvince!==''">
-          , {{userProfileDetail.stateProvince}}
-        </span>
-        <span *ngIf="userProfileDetail.countryName!==''">
-          , {{userProfileDetail.countryName}}
-        </span>
-      </small>
-    </div>
-  </div>
 
   <div class="topBar container">
     <ion-segment
@@ -590,18 +596,16 @@
                   src="../../../assets/iconsSvg/heart-outline.svg"
                   *ngIf="feed.liked===0"
                 ></ion-icon>
-                <span *ngIf="feed.likes===0">
-                  <ion-text style="color: #9e9bb0"> &nbsp;Like </ion-text>
+                <span *ngIf="feed.likes === 0">
+                  <ion-text style="color: #9e9bb0"> &nbsp; Like </ion-text>
                 </span>
                 <ion-icon
                   src="../../../assets/iconsSvg/heart.svg"
-                  *ngIf="feed.liked===1"
+                  *ngIf="feed.liked !== 0"
                 ></ion-icon>
-                <span *ngIf="feed.likes > 0"
-                  ><ion-text style="color: #ec5529">
-                    &nbsp;Like
-                  </ion-text></span
-                >
+                <span *ngIf="feed.likes !== 0">
+                  <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
+                </span>
               </ion-col>
               <ion-col
                 class="colLikeShare"
@@ -627,7 +631,7 @@
                 <span *ngIf="feed.comments > 0">
                   <ion-text style="color: #9e9bb0"> &nbsp;Comments </ion-text>
                 </span>
-                <span *ngIf="feed.comments > 0">&nbsp;{{feed.comments}}</span>
+                <!-- <span *ngIf="feed.comments > 0">&nbsp;{{feed.comments}}</span> -->
               </ion-col>
               <ion-col
                 class="colLikeShare"

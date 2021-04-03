@@ -1,10 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar mode="md">
     <ion-buttons slot="start">
-      <ion-menu-button
-        autoHide="false"
-        menuToggle
-      ></ion-menu-button>
+      <ion-menu-button autoHide="false" menuToggle></ion-menu-button>
     </ion-buttons>
     <ion-title
       mode="md"
@@ -384,7 +381,7 @@
           <div
             (click)="dismissAdminPost(feed.id)"
             style="
-              color: #fff;
+              color: #0d0439;
               position: absolute;
               right: 4px;
               top: 4px;
@@ -511,8 +508,9 @@
                 button
                 (click)="openPopUpEdit(i,feed,feed.user.id)"
               >
+                <!-- src="../../../assets/iconsSvg/ellipsis-vertical.svg" -->
                 <ion-icon
-                  src="../../../assets/iconsSvg/ellipsis-vertical.svg"
+                  name="ellipsis-vertical-outline"
                   style="font-size: large; color: #000"
                 >
                 </ion-icon>
@@ -736,9 +734,9 @@
                   </span>
                   <ion-icon
                     src="../../../assets/iconsSvg/heart.svg"
-                    *ngIf="feed.liked===1"
+                    *ngIf="feed.liked !== 0"
                   ></ion-icon>
-                  <span *ngIf="feed.likes > 0">
+                  <span *ngIf="feed.likes !== 0">
                     <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
                   </span>
                 </ion-col>
@@ -747,21 +745,25 @@
                   button
                   (click)="commentPost(feed, i)"
                 >
+                  <!-- <span>
+                    <ion-text style="color: #9e9bb0">
+                      &nbsp; Comments
+                    </ion-text>
+                  </span> -->
                   <ion-icon
-                    src="../../../assets/iconsSvg/chatbubble-ellipses-outline.svg"
+                    name="chatbox-outline"
                     *ngIf="feed.commented===0"
-                  >
-                  </ion-icon>
-                  <span>
+                  ></ion-icon>
+                  <ion-icon
+                    name="chatbox-outline"
+                    *ngIf="feed.commented===1"
+                  ></ion-icon>
+
+                  <span style="width: 100px">
                     <ion-text style="color: #9e9bb0">
                       &nbsp; Comments
                     </ion-text>
                   </span>
-                  <ion-icon
-                    src="../../../assets/iconsSvg/chatbubble-ellipses.svg"
-                    *ngIf="feed.commented===1"
-                    style="color: #454545"
-                  ></ion-icon>
                   <!-- <span *ngIf="feed.comments > 0">{{feed.comments}}</span> -->
                 </ion-col>
                 <ion-col

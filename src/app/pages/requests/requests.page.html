@@ -14,7 +14,7 @@
 
 <!-- <ion-content *ngIf="noRequest==true">
   <div class="noReq ion-text-capitalize ion-text-center" style="margin-top:42% ;">
-    <ion-icon mode="ios" src="../../../assets/UserThree.svg" style="font-size: 900%;color: #3a3a3a;"></ion-icon>
+    <ion-icon mode="ios" src="../../../assets/UserThree.svg" style="font-size: 900%;color: #0d0439;"></ion-icon>
     <div style="margin-top:-8%;">{{noRequestsString}}</div>
   </div>
 </ion-content> -->
@@ -29,7 +29,7 @@
     <ion-segment-button class="seg_btn" value="friend">
       <ion-row>
         <ion-col>
-          <ion-label style="padding: 0; margin: 1%; font-size: x-small"
+          <ion-label style="padding: 0; margin: 1%"
             >{{friendReqString}}</ion-label
           >
         </ion-col>
@@ -42,7 +42,7 @@
     <ion-segment-button class="seg_btn" value="groupChat">
       <ion-row>
         <ion-col>
-          <ion-label style="padding: 0; margin: 1%; font-size: x-small"
+          <ion-label style="padding: 0; margin: 1%"
             >{{groupChatReqString}}</ion-label
           >
         </ion-col>
@@ -55,7 +55,7 @@
     <ion-segment-button class="seg_btn" value="team">
       <ion-row>
         <ion-col>
-          <ion-label style="padding: 0; margin: 1%; font-size: x-small"
+          <ion-label style="padding: 0; margin: 1%"
             >{{teamReqString}}</ion-label
           >
         </ion-col>
@@ -68,7 +68,7 @@
     <ion-segment-button class="seg_btn" value="guardian">
       <ion-row>
         <ion-col>
-          <ion-label style="padding: 0; margin: 1%; font-size: x-small"
+          <ion-label style="padding: 0; margin: 1%"
             >{{guardianReqString}}</ion-label
           >
         </ion-col>
@@ -89,9 +89,9 @@
         <ion-icon
           mode="ios"
           src="../../../assets/UserThree.svg"
-          style="font-size: 900%; color: #3a3a3a"
+          style="font-size: 900%; color: #0d0439"
         ></ion-icon>
-        <div>{{noFriendReqString}}</div>
+        <div style="color: #0d0439">{{noFriendReqString}}</div>
       </div>
       <ion-card *ngIf="friendReqList.length>0" class="cardMaxHeight">
         <ion-card-header>
@@ -206,9 +206,9 @@
         <ion-icon
           mode="ios"
           src="../../../assets/UserThree.svg"
-          style="font-size: 900%; color: #3a3a3a"
+          style="font-size: 900%; color: #0d0439"
         ></ion-icon>
-        <div>{{noTeamReqString}}</div>
+        <div style="color: #0d0439">{{noTeamReqString}}</div>
       </div>
       <ion-card *ngIf="teamReqList.length>0" class="cardMaxHeight">
         <ion-card-header>
@@ -314,9 +314,9 @@
         <ion-icon
           mode="ios"
           src="../../../assets/UserThree.svg"
-          style="font-size: 900%; color: #3a3a3a"
+          style="font-size: 900%; color: #0d0439"
         ></ion-icon>
-        <div>{{noGrpReqString}}</div>
+        <div style="color: #0d0439">{{noGrpReqString}}</div>
       </div>
       <ion-card *ngIf="groupReqList.length>0" class="cardMaxHeight">
         <ion-card-header>
@@ -340,7 +340,9 @@
           </div>
 
           <div *ngIf="groupChatRequests.length==0">
-            <h6 style="text-align: center">{{noGrpReqString}}</h6>
+            <h6 style="text-align: center; color: #0d0439">
+              {{noGrpReqString}}
+            </h6>
           </div>
 
           <ion-list>
@@ -424,7 +426,7 @@
         <ion-icon
           mode="ios"
           src="../../../assets/UserThree.svg"
-          style="font-size: 900%; color: #3a3a3a"
+          style="font-size: 900%; color: #0d0439"
         ></ion-icon>
         <div>{{noGuardReqString}}</div>
       </div>
@@ -567,7 +569,7 @@
                     >{{item.first_name}} {{item.last_name}}
                   </ion-label>
                   <ion-button
-                    style="width: 50%; --background: #112 !important "
+                    style="width: 50%; --background: #112 !important"
                     *ngIf="isPending === true"
                     disabled="true"
                     >{{pendingString}}..</ion-button
