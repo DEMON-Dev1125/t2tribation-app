@@ -315,18 +315,39 @@
         </ion-row>
 
         <!-- Tag sport part -->
-        <!-- <div *ngIf="taggedSportFlag === false" style="font-weight: bolder; font-size: initial; color: #3d83fe;padding: 14px;">
-      <span (click)="tagSport()">
-        #{{tagSportString}}
-      </span>
-    </div>
-    <div *ngIf="taggedSportFlag === true" style="border: 2px solid; background: #f7911f; padding-left: 6px; border-radius: 20px; ">
-      <span (click)="tagSport()">
-        {{tagSportString}}
-      </span>
-      <img (click)="tagSport()" style="width: 10%;" src="../../../assets/sports/{{tagSportIcon}}.png"/>
-      <ion-icon *ngIf="showClose" style="float: right;margin: 10px;color: #000;font-weight: 900;" name="close-outline" (click)="closeTag()"></ion-icon>
-    </div> -->
+        <div
+          *ngIf="taggedSportFlag === false"
+          style="
+            font-weight: bolder;
+            font-size: initial;
+            color: #3d83fe;
+            padding: 14px;
+          "
+        >
+          <span (click)="tagSport()"> #{{tagSportString}} </span>
+        </div>
+        <div
+          *ngIf="taggedSportFlag === true"
+          style="
+            background: #f7911f;
+            border-radius: 20px;
+            padding-left: 12px;
+            color: #0d0439;
+          "
+        >
+          <span (click)="tagSport()"> {{tagSportString}} </span>
+          <img
+            (click)="tagSport()"
+            style="width: 10%"
+            src="../../../assets/sports/{{tagSportIcon}}.png"
+          />
+          <ion-icon
+            *ngIf="showClose"
+            style="float: right; margin: 10px; color: #000; font-weight: 900"
+            name="close-outline"
+            (click)="closeTag()"
+          ></ion-icon>
+        </div>
         <ion-button
           (click)="creatPost()"
           *ngIf="showPostButton && videoProcesComplete===true"
@@ -334,8 +355,8 @@
           style="
             --color: #fff;
             color: #fff;
-            background: #112;
-            --background: #112;
+            background: #0d0439;
+            --background: #0d0439;
           "
         >
           {{postString}}
