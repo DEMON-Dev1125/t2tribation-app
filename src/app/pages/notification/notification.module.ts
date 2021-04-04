@@ -17,8 +17,8 @@ import { BoldPipe } from '../../pipes/bold.pipe';
     // BoldPipe,
     NotificationPageRoutingModule
   ],
-  declarations: [NotificationPage,BoldPipe],
+  declarations: [NotificationPage, BoldPipe],
   // exports: [BoldPipe],
 
 })
-export class NotificationPageModule {}
+export class NotificationPageModule { }

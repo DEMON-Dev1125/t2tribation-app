@@ -20,4 +20,4 @@ import { ForgetPassPage } from './forget-pass.page';
   ],
   declarations: [ForgetPassPage]
 })
-export class ForgetPassPageModule {}
+export class ForgetPassPageModule { }

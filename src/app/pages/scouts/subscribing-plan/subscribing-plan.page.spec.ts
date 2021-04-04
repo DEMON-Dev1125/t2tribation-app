@@ -9,7 +9,7 @@ describe('SubscribingPlanPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubscribingPlanPage ],
+      declarations: [SubscribingPlanPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

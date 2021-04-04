@@ -42,13 +42,13 @@ export class GuardianPage implements OnInit {
       this.countryData = this.utilServ.getCountryList();
       this.apiService.getGuardedAthletes(this.userDetail.id).subscribe((res: any) => {
         if (res) {
-          if (res.message.length > 0){
+          if (res.message.length > 0) {
             this.minorList = res.message;
             this.filteredMinorList = this.minorList;
             if (this.filteredMinorList !== null && this.countryData) {
               this.getCountryNameFromCode();
             }
-          }else{
+          } else {
             this.utilServ.navTimeline();
           }
         }
@@ -111,7 +111,7 @@ export class GuardianPage implements OnInit {
       if (res) {
         if (res.message.length > 0) {
           this.eventCustom.publish('showGuardianTool', true);
-        }else{
+        } else {
           this.eventCustom.publish('showGuardianTool', false);
         }
       }

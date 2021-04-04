@@ -17,4 +17,4 @@ import { ExplorePage } from './explore.page';
   ],
   declarations: [ExplorePage]
 })
-export class ExplorePageModule {}
+export class ExplorePageModule { }

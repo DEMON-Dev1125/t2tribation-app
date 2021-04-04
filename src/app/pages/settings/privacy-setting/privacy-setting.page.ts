@@ -73,9 +73,9 @@ export class PrivacySettingPage implements OnInit {
     private utilServ: GenralUtilsService,) {
     this.actRouter.queryParams.subscribe(() => {
       this.setUpBasicDetails();
-      this.utilServ.hideLoaderWaitAMin();   
+      this.utilServ.hideLoaderWaitAMin();
     });
-   
+
 
   }
 
@@ -126,14 +126,14 @@ export class PrivacySettingPage implements OnInit {
           this.privacySettingApi(res.message[0]);
         }
       });
-      if(this.privacySettingApi){
-            this.utilServ.hideLoaderWaitAMin();        
-            this.utilServ.hideLoaderWait();
-          setTimeout(() => {
-            this.utilServ.hideLoaderWait();        
-            this.utilServ.hideLoaderWaitAMin();        
-            this.utilServ.hideLoaderWaitAMin();        
-          }, 4500);
+      if (this.privacySettingApi) {
+        this.utilServ.hideLoaderWaitAMin();
+        this.utilServ.hideLoaderWait();
+        setTimeout(() => {
+          this.utilServ.hideLoaderWait();
+          this.utilServ.hideLoaderWaitAMin();
+          this.utilServ.hideLoaderWaitAMin();
+        }, 4500);
       }
     }
     this.utilServ.hideLoaderWaitAMin();
@@ -158,20 +158,20 @@ export class PrivacySettingPage implements OnInit {
     this.wishToBeScout(this.willBeScout);
     this.goodToGo = true;
     if (this.goodToGo === true) {
-      this.utilServ.hideLoaderWait();        
+      this.utilServ.hideLoaderWait();
       this.utilServ.hideLoaderWaitAMin();
       setTimeout(() => {
-        this.utilServ.hideLoaderWait();        
-        this.utilServ.hideLoaderWaitAMin();        
-        this.utilServ.hideLoaderWaitAMin();        
+        this.utilServ.hideLoaderWait();
+        this.utilServ.hideLoaderWaitAMin();
+        this.utilServ.hideLoaderWaitAMin();
       }, 4500);
     }
     // console.log(apiData);
     // apiData.scout_status;
     setTimeout(() => {
-      this.utilServ.hideLoaderWait();        
-      this.utilServ.hideLoaderWaitAMin();        
-      this.utilServ.hideLoaderWaitAMin();        
+      this.utilServ.hideLoaderWait();
+      this.utilServ.hideLoaderWaitAMin();
+      this.utilServ.hideLoaderWaitAMin();
     }, 4500);
   }
 

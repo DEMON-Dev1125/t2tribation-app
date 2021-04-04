@@ -17,4 +17,4 @@ import { IntroPage } from './intro.page';
   ],
   declarations: [IntroPage]
 })
-export class IntroPageModule {}
+export class IntroPageModule { }

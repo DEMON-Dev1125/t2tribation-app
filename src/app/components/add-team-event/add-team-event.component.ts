@@ -43,7 +43,7 @@ export class AddTeamEventComponent implements OnInit {
     this.eventDescription = '';
     this.eventDate = '';
     this.actRouter.queryParams.subscribe(() => {
-     this.getLanguageStrings();
+      this.getLanguageStrings();
     });
     // this.apiService.getTeamMembers(this.teamData.teamid).pipe().subscribe((res: any) => {
     //   // this.teammembers = res.message;
@@ -51,7 +51,7 @@ export class AddTeamEventComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
   back() {
     this.modalController.dismiss();
@@ -111,7 +111,7 @@ export class AddTeamEventComponent implements OnInit {
         // })
       });
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.addToCanalderString = this.addToCanalderString.replace('+', 'document.createElement("BUTTON")');
 

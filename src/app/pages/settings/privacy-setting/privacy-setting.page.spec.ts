@@ -9,7 +9,7 @@ describe('PrivacySettingPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrivacySettingPage ],
+      declarations: [PrivacySettingPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

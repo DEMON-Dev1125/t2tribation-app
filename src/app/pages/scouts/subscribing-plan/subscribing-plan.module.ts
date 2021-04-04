@@ -17,4 +17,4 @@ import { SubscribingPlanPage } from './subscribing-plan.page';
   ],
   declarations: [SubscribingPlanPage]
 })
-export class SubscribingPlanPageModule {}
+export class SubscribingPlanPageModule { }

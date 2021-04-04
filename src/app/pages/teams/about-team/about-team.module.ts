@@ -17,4 +17,4 @@ import { AboutTeamPage } from './about-team.page';
   ],
   declarations: [AboutTeamPage]
 })
-export class AboutTeamPageModule {}
+export class AboutTeamPageModule { }

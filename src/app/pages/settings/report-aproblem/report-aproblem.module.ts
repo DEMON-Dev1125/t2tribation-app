@@ -17,4 +17,4 @@ import { ReportAProblemPage } from './report-aproblem.page';
   ],
   declarations: [ReportAProblemPage]
 })
-export class ReportAProblemPageModule {}
+export class ReportAProblemPageModule { }

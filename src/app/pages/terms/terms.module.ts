@@ -17,4 +17,4 @@ import { TermsPage } from './terms.page';
   ],
   declarations: [TermsPage]
 })
-export class TermsPageModule {}
+export class TermsPageModule { }

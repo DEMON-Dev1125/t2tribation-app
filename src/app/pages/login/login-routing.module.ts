@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'forget-pass',
-    loadChildren: () => import('./forget-pass/forget-pass.module').then( m => m.ForgetPassPageModule)
+    loadChildren: () => import('./forget-pass/forget-pass.module').then(m => m.ForgetPassPageModule)
   }
 ];
 
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LoginPageRoutingModule {}
+export class LoginPageRoutingModule { }

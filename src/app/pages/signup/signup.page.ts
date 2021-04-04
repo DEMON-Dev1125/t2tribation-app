@@ -150,7 +150,7 @@ export class SignupPage implements OnInit {
     private nativeLib: DeviceNativeApiService,
     private modalController: ModalController,
     // private signInWithApple: SignInWithApple
-    ) {
+  ) {
     this.actRouter.queryParams.subscribe(() => {
       this.willBeScout = 0;
       this.wishToBeScout(this.willBeScout);
@@ -452,7 +452,7 @@ export class SignupPage implements OnInit {
   //       this.presentAlert();
   //     });
   // }
-  
+
 
   // googleLog() {
   //   this.googleplus.logout();

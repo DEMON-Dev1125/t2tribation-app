@@ -34,7 +34,7 @@ export class SelectSportsOrLagacyComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
 
   ionViewDidEnter() {
@@ -77,7 +77,7 @@ export class SelectSportsOrLagacyComponent implements OnInit {
       data: null
     });
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.searchString = this.utilServ.getLangByCode('search');
     }

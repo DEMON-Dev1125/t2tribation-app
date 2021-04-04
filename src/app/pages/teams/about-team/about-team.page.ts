@@ -178,7 +178,7 @@ export class AboutTeamPage implements OnInit {
     // this.isAdmin = false;
     // this.teammembers = [];
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.noEventsString = this.utilServ.getLangByCode('no_events_show');
       this.createEventString = this.utilServ.getLangByCode('create_event');

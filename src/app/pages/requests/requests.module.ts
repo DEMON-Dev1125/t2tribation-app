@@ -17,4 +17,4 @@ import { RequestsPage } from './requests.page';
   ],
   declarations: [RequestsPage]
 })
-export class RequestsPageModule {}
+export class RequestsPageModule { }

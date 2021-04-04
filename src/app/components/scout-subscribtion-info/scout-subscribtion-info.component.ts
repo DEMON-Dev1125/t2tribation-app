@@ -31,7 +31,7 @@ export class ScoutSubscribtionInfoComponent implements OnInit {
 
   ngOnInit() {
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.scoutsToolString = this.utilServ.getLangByCode('scout_tool');
       this.scoutFeature1 = this.utilServ.getLangByCode('scout.label.description.1');
@@ -45,7 +45,7 @@ export class ScoutSubscribtionInfoComponent implements OnInit {
       this.yearActualSubsPlan = this.utilServ.getLangByCode('scout.label.yearActualSubPlan');
     }
   }
-  close(){
+  close() {
     this.mc.dismiss();
   }
 }

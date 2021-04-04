@@ -11,9 +11,10 @@ const routes: Routes = [
   {
     path: 'doc-to-upload',
     loadChildren: () => import('./doc-to-upload/doc-to-upload.module').then(m => m.DocToUploadPageModule)
-  },  {
+  },
+  {
     path: 'subscribing-plan',
-    loadChildren: () => import('./subscribing-plan/subscribing-plan.module').then( m => m.SubscribingPlanPageModule)
+    loadChildren: () => import('./subscribing-plan/subscribing-plan.module').then(m => m.SubscribingPlanPageModule)
   }
 
 ];

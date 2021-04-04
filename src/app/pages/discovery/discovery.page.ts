@@ -29,19 +29,19 @@ export class DiscoveryPage implements OnInit {
   skipFirst = 0;
   limitreached = false;
   checkedsegment = 'people';
-  
 
-   // Strings
-   discoveryString = 'Discovery';
-   searchString = 'search';
-   noFriendsListString = 'No group or friend found';
+
+  // Strings
+  discoveryString = 'Discovery';
+  searchString = 'search';
+  noFriendsListString = 'No group or friend found';
   //  findFriendsGroupsString = 'Find your friends and groups';
-   allCaughtUpString = 'You are All Caught Up :)';
-   tryChangeFilterString = 'Try changing the filter or search term.';
-   peopleString = 'People';
-   postString = 'Post';
+  allCaughtUpString = 'You are All Caught Up :)';
+  tryChangeFilterString = 'Try changing the filter or search term.';
+  peopleString = 'People';
+  postString = 'Post';
 
-   constructor(
+  constructor(
     private modalController: ModalController,
     private apiService: ApiService,
     private router: Router,
@@ -61,21 +61,21 @@ export class DiscoveryPage implements OnInit {
       this.searchBox.focus();
     }, 150);
   }
-  getAllAssets(){
+  getAllAssets() {
     this.apiService.getAllAssets(this.userDetail.id, this.limitOfResults, this.skipFirst).subscribe((res: any) => {
-      if(res.message.length > 0){
+      if (res.message.length > 0) {
         // console.log('sdcsff::::::', res);
         const temp = res.message;
-        if(!this.discoveryAssets){
+        if (!this.discoveryAssets) {
           this.discoveryAssets = temp;
-        }else{
+        } else {
           temp.forEach(element => {
             this.discoveryAssets.push(element);
           });
         }
-       }else{
-         this.limitreached = true;
-       }
+      } else {
+        this.limitreached = true;
+      }
     });
   }
 
@@ -114,7 +114,7 @@ export class DiscoveryPage implements OnInit {
       this.postString = this.utilServ.getLangByCode('postString');
     }
   }
-  async onClickSport(sport){
+  async onClickSport(sport) {
     const modal = await this.modalController.create({
       component: FilterSportDiscoveryComponent,
       componentProps: {
@@ -124,24 +124,24 @@ export class DiscoveryPage implements OnInit {
 
     modal.onDidDismiss().then(data => {
       if (data.data) {
-      
+
       }
     });
     return await modal.present();
-   
+
   }
-  loadMore(e){
+  loadMore(e) {
     this.skipFirst += 20;
     this.getAllAssets();
     setTimeout(() => {
       e.target.complete();
     }, 500);
   }
-  onClickDis(discoveryData){
-    localStorage.setItem('discoveryData', JSON.stringify(discoveryData) );
+  onClickDis(discoveryData) {
+    localStorage.setItem('discoveryData', JSON.stringify(discoveryData));
     this.router.navigate([`explore/${discoveryData.post_id}`]);
   }
-  searchByDiscChanged(ev){
+  searchByDiscChanged(ev) {
     this.checkedsegment = ev.detail.value;
   }
   rootMsgPage(friendId) {

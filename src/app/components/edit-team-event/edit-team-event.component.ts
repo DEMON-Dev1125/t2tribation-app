@@ -73,7 +73,7 @@ export class EditTeamEventComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+
   }
   ionViewDidEnter() {
     this.setFocus(this.eveTitleSelector);
@@ -104,7 +104,7 @@ export class EditTeamEventComponent implements OnInit {
   back() {
     this.modalController.dismiss();
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.editEventTitleString = this.utilServ.getLangByCode('edit') + this.utilServ.getLangByCode('event');
       this.eventTitleString = this.utilServ.getLangByCode('event_title');

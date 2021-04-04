@@ -17,4 +17,4 @@ import { PrivacySettingPage } from './privacy-setting.page';
   ],
   declarations: [PrivacySettingPage]
 })
-export class PrivacySettingPageModule {}
+export class PrivacySettingPageModule { }

@@ -49,7 +49,7 @@ export class AddTeamMemberComponent implements OnInit {
   }
   ngOnInit() {
     this.environment = environment;
-  
+
     // if (this.utilServ.langSetupFLag) {
     //   this.selectTeamMemberString = this.utilServ.getLangByCode('select_team_member');
     //   this.teamCreatedString = this.utilServ.getLangByCode('Team Created');
@@ -174,7 +174,7 @@ export class AddTeamMemberComponent implements OnInit {
   back() {
     this.modalController.dismiss();
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.noFriendToAddString = this.utilServ.getLangByCode('you_have_no_friends');
       this.selectTeamMemberString = this.utilServ.getLangByCode('select_team_member');

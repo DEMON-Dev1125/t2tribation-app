@@ -17,4 +17,4 @@ import { EditProfilePage } from './edit-profile.page';
   ],
   declarations: [EditProfilePage]
 })
-export class EditProfilePageModule {}
+export class EditProfilePageModule { }

@@ -9,7 +9,7 @@ describe('ForgetPassPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForgetPassPage ],
+      declarations: [ForgetPassPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

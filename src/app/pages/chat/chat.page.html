@@ -99,6 +99,7 @@
               />
               <!-------------------------------------------- Person Online ------------------------------------------------->
               <span class="dot-online" *ngIf="chatdetail.online"></span>
+              <span class="dot-offline" *ngIf="!chatdetail.online"></span>
             </ion-avatar>
 
             <ion-label *ngIf="chatdetail.first_name!=null">

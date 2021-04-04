@@ -44,7 +44,7 @@ export class PositionForSportsComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
 
   ionViewDidEnter() {
@@ -85,7 +85,7 @@ export class PositionForSportsComponent implements OnInit {
       data: null
     });
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.searchString = this.utilServ.getLangByCode('search');
     }

@@ -40,7 +40,7 @@ export class SubscribingPlanPage implements OnInit {
   closeString = 'Close';
   getSubscriptionString = 'Buy Subscription';
   buyStatusString = 'Congratulations...! Now you are a certified "Tribation" Scout.';
-  congString = 'Congratulations !';  
+  congString = 'Congratulations !';
   scoutStatus;
 
   // checkoutString = 'Make Payment';
@@ -56,14 +56,14 @@ export class SubscribingPlanPage implements OnInit {
   plan: string;
   displayMoney = '$399.99';
   youGetMailAsWellString = 'Selection has been locked for the payment,you pay either from this button or from the link we sent to your verified email address';
- 
+
   areYouSureString = 'Activate';
   doYouWantLogoutString = 'Please login to activate scout features';
   cancelString = 'cancel';
   yesString = 'yes';
   scoutToolString = 'Scout Tool';
   constructor(
-    public platform: Platform, 
+    public platform: Platform,
     private store: InAppPurchase2,
     private actRouter: ActivatedRoute,
     private apiService: ApiService,
@@ -93,19 +93,19 @@ export class SubscribingPlanPage implements OnInit {
       }, 5);
       this.getLanguageStrings();
 
-      if(this.platform.is('ios') === true){
+      if (this.platform.is('ios') === true) {
         this.platform.ready().then(() => {
-       // Only for debugging!
-        this.store.verbosity = this.store.DEBUG;
-        this.registerProducts();
-        this.setupListeners();
-        // Get the real product information
-        this.store.ready(() => {
-          this.products = this.store.products;
-          console.log('P::::::::::::::::::::::', this.products);
-           this.products.pop();
-          this.ref.detectChanges();
-        });
+          // Only for debugging!
+          this.store.verbosity = this.store.DEBUG;
+          this.registerProducts();
+          this.setupListeners();
+          // Get the real product information
+          this.store.ready(() => {
+            this.products = this.store.products;
+            console.log('P::::::::::::::::::::::', this.products);
+            this.products.pop();
+            this.ref.detectChanges();
+          });
         })
       }
     });
@@ -137,10 +137,10 @@ export class SubscribingPlanPage implements OnInit {
     this.environment = environment;
     this.userDetail = JSON.parse(this.utilServ.getUserDetails());
     this.apiService.getScoutFilePaymentStatus(this.userDetail.id).subscribe((res: any) => {
-      if(res.message.fileCount === 2 && res.message.paymentDetails === this.userDetail.id){
+      if (res.message.fileCount === 2 && res.message.paymentDetails === this.userDetail.id) {
         this.apiService.getScoutPaymentStatus(this.userDetail.id).subscribe((res: any) => {
-          if(res.message.status === 1 && res.message.mode !== null){
-              this.router.navigate(['/scouts']);
+          if (res.message.status === 1 && res.message.mode !== null) {
+            this.router.navigate(['/scouts']);
           }
         });
       }
@@ -203,7 +203,7 @@ export class SubscribingPlanPage implements OnInit {
       id: PRODUCT_YEAR_KEY,
       type: this.store.CONSUMABLE,
     });
- 
+
     this.store.register({
       id: PRODUCT_MONTH_KEY,
       type: this.store.CONSUMABLE,
@@ -212,7 +212,7 @@ export class SubscribingPlanPage implements OnInit {
       id: PRODUCT_FREE_KEY,
       type: this.store.NON_CONSUMABLE,
     });
- 
+
     this.store.refresh();
   }
   setupListeners() {
@@ -242,19 +242,19 @@ export class SubscribingPlanPage implements OnInit {
     // Specific query for one ID
     this.store.when(PRODUCT_MONTH_KEY).owned((p: IAPProduct) => {
       // this.createScoutPaymentRecord(p.transaction.id, this.utilServ.getTimeStamp(),this.userDetail.id, 1, 1);
-        //  alert('Owned true 1');
+      //  alert('Owned true 1');
       // this.isPro = true;
     });
     this.store.when(PRODUCT_YEAR_KEY).owned((p: IAPProduct) => {
       // this.createScoutPaymentRecord(p.transaction.id, this.utilServ.getTimeStamp(),this.userDetail.id, 2, 1);
       // alert('Owned true 2');
-   // this.isPro = true;
-   });
-   this.store.when(PRODUCT_FREE_KEY).owned((p: IAPProduct) => {
+      // this.isPro = true;
+    });
+    this.store.when(PRODUCT_FREE_KEY).owned((p: IAPProduct) => {
       //  this.createScoutPaymentRecord(p.transaction.id, this.utilServ.getTimeStamp(),this.userDetail.id, 0, 1);
       //  alert('Owned true 3');
-    // this.isPro = true;
-   });
+      // this.isPro = true;
+    });
   }
   purchase(product: IAPProduct) {
     let self = this.store;
@@ -278,7 +278,7 @@ export class SubscribingPlanPage implements OnInit {
       product.finish();
     });
     this.store.when(product).approved((product: IAPProduct) => {
-       this.createScoutPaymentRecord(product.transaction.id, this.utilServ.getTimeStamp(),this.userDetail.id, 1, 1);
+      this.createScoutPaymentRecord(product.transaction.id, this.utilServ.getTimeStamp(), this.userDetail.id, 1, 1);
       // alert('approved product');
       product.finish();
     });
@@ -289,7 +289,7 @@ export class SubscribingPlanPage implements OnInit {
       // alert('expired');
     });
   }
- 
+
   // To comply with AppStore rules
   restore() {
     this.store.refresh();
@@ -301,7 +301,7 @@ export class SubscribingPlanPage implements OnInit {
       message,
       buttons: ['OK']
     });
- 
+
     await alert.present();
   }
   getLanguageStrings() {
@@ -401,13 +401,13 @@ export class SubscribingPlanPage implements OnInit {
     });
     await alert.present();
   }
-  createScoutPaymentRecord(transId, timeStamp, userid, mode, status ){
-    this.apiService.createScoutPaymentRecord(transId, timeStamp, userid, mode, status ).subscribe((message: any) => {
-      if(message){
+  createScoutPaymentRecord(transId, timeStamp, userid, mode, status) {
+    this.apiService.createScoutPaymentRecord(transId, timeStamp, userid, mode, status).subscribe((message: any) => {
+      if (message) {
         // this.utilServ.getScoutStatusFrom();
         this.logout();
       }
-  });
+    });
   }
   resetDefaults() {
     this.userDetail = null;

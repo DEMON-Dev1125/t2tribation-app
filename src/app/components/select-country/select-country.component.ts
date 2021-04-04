@@ -60,7 +60,7 @@ export class SelectCountryComponent implements OnInit {
       data: null
     });
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.searchString = this.utilServ.getLangByCode('search');
     }

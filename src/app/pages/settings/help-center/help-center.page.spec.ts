@@ -9,7 +9,7 @@ describe('HelpCenterPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelpCenterPage ],
+      declarations: [HelpCenterPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

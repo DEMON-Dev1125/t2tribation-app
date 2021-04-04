@@ -9,7 +9,7 @@ describe('DocToUploadPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DocToUploadPage ],
+      declarations: [DocToUploadPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

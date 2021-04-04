@@ -37,42 +37,42 @@ export class AboutTribationPage implements OnInit {
   constructor(private apiService: ApiService,
     private actRouter: ActivatedRoute,
     private location: Location,
-    private utilServ: GenralUtilsService) { 
-      this.actRouter.queryParams.subscribe(() => {
+    private utilServ: GenralUtilsService) {
+    this.actRouter.queryParams.subscribe(() => {
+      if (this.utilServ.langSetupFLag) {
+        this.localLang();
+      }
+      this.apiService.getIntroData().subscribe((res: any) => {
+        this.introSlides = res.message;
         if (this.utilServ.langSetupFLag) {
-          this.localLang();
+          // tslint:disable-next-line: prefer-for-of
+          for (let x = 0; x < this.introSlides.length; x++) {
+            this.introSlides[x].content = this.utilServ.getLangByCode(this.introSlides[x].content);
+          }
+        } else {
+          // tslint:disable-next-line: prefer-for-of
+          for (let x = 0; x < this.introSlides.length; x++) {
+            this.introSlides[x].content = this.localSlideContentArray[this.introSlides[x].content];
+          }
         }
-        this.apiService.getIntroData().subscribe((res: any) => {
-          this.introSlides = res.message;
-          if (this.utilServ.langSetupFLag) {
-            // tslint:disable-next-line: prefer-for-of
-            for (let x = 0; x < this.introSlides.length; x++) {
-              this.introSlides[x].content = this.utilServ.getLangByCode(this.introSlides[x].content);
-            }
-          } else {
-            // tslint:disable-next-line: prefer-for-of
-            for (let x = 0; x < this.introSlides.length; x++) {
-              this.introSlides[x].content = this.localSlideContentArray[this.introSlides[x].content];
-            }
-          }
-          this.slides.startAutoplay();
-        });
-        this.apiService.getIntroVideoData().subscribe((res: any) => {
-          if(res){
-            this.videoData = res.message;
-            if(this.videoData){
-              this.videoData.forEach(element => {
-                if(element.content){
-                  element.content = this.utilServ.getLangByCode(element.content);
-                  element.showMore = false
-                }
-              });
-            }
-          }
-        });
+        this.slides.startAutoplay();
       });
+      this.apiService.getIntroVideoData().subscribe((res: any) => {
+        if (res) {
+          this.videoData = res.message;
+          if (this.videoData) {
+            this.videoData.forEach(element => {
+              if (element.content) {
+                element.content = this.utilServ.getLangByCode(element.content);
+                element.showMore = false
+              }
+            });
+          }
+        }
+      });
+    });
   }
-  
+
   ngOnInit() {
   }
   trimString(string, length) {
@@ -88,9 +88,9 @@ export class AboutTribationPage implements OnInit {
     this.clickToKnowMoreString = this.utilServ.getLangByCode('clickToKnowMore');
     this.lastSlideString = this.utilServ.getLangByCode('lastSlideString');
   }
-  scrollOnClick(){
-  setTimeout(() => {
-    this.content.scrollToPoint(0, 400, 100);
-  }, 150);
+  scrollOnClick() {
+    setTimeout(() => {
+      this.content.scrollToPoint(0, 400, 100);
+    }, 150);
   }
 }

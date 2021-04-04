@@ -44,7 +44,7 @@ export class ReportAProblemPage implements OnInit {
     this.utilServ.checkUserExists();
     this.setUpBasicDetails();
   }
-  
+
   setUpBasicDetails() {
     this.repotdesc = '';
     this.reportprblm = '';

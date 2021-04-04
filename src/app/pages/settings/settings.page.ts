@@ -67,47 +67,47 @@ export class SettingsPage implements OnInit {
     this.googlePlus.login({ params })
       .then((res) => {
         alert('afterlogin' + JSON.stringify(res));
-        
+
       }).catch((error) => {
         // console.log(error);
         alert('error:' + JSON.stringify(error));
       });
 
-  // }
-  // onLoginSuccess(accessToken, accessSecret) {
-  //   const credential = accessSecret ? firebase.auth.GoogleAuthProvider
-  //     .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
-  //       .credential(accessToken);
-  //   this.fireAuth.signInWithCredential(credential)
-  //     .then((response) => {
-  //       console.log('response', response);
-  //       // this.router.navigate(["/profile"]);
-  //       // this.loading.dismiss();
-  //     });
+    // }
+    // onLoginSuccess(accessToken, accessSecret) {
+    //   const credential = accessSecret ? firebase.auth.GoogleAuthProvider
+    //     .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
+    //       .credential(accessToken);
+    //   this.fireAuth.signInWithCredential(credential)
+    //     .then((response) => {
+    //       console.log('response', response);
+    //       // this.router.navigate(["/profile"]);
+    //       // this.loading.dismiss();
+    //     });
 
-  // }
-  // onLoginError(err) {
-  //   console.log(err);
-  // }
-  // async apple() {
-  //   this.signInWithApple.signin({
-  //     requestedScopes: [
-  //       ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
-  //       ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
-  //     ]
-  //   })
-  //     .then((res: AppleSignInResponse) => {
-  //       // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
-  //       alert('Send token to apple for verification: ' + JSON.stringify(res));
-  //       console.log(res);
-  //     })
-  //     .catch((error: AppleSignInErrorResponse) => {
-  //       alert(error.code + ' ' + JSON.stringify(error));
-  //       console.error(error);
-  //     });
-  //   // const response: ResponseSignInWithApplePlugin = await SignInWithApple.Authorize();
-  //   // console.log('AppleSign:: ', response);
-  //   // alert('AppleSign::' + JSON.stringify(response));
+    // }
+    // onLoginError(err) {
+    //   console.log(err);
+    // }
+    // async apple() {
+    //   this.signInWithApple.signin({
+    //     requestedScopes: [
+    //       ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
+    //       ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
+    //     ]
+    //   })
+    //     .then((res: AppleSignInResponse) => {
+    //       // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
+    //       alert('Send token to apple for verification: ' + JSON.stringify(res));
+    //       console.log(res);
+    //     })
+    //     .catch((error: AppleSignInErrorResponse) => {
+    //       alert(error.code + ' ' + JSON.stringify(error));
+    //       console.error(error);
+    //     });
+    //   // const response: ResponseSignInWithApplePlugin = await SignInWithApple.Authorize();
+    //   // console.log('AppleSign:: ', response);
+    //   // alert('AppleSign::' + JSON.stringify(response));
   }
 
   ionViewWillEnter() {

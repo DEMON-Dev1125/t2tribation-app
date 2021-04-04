@@ -17,4 +17,4 @@ import { DirectChatPage } from './direct-chat.page';
   ],
   declarations: [DirectChatPage]
 })
-export class DirectChatPageModule {}
+export class DirectChatPageModule { }

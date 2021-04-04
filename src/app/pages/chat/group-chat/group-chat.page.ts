@@ -99,20 +99,20 @@ export class GroupChatPage implements OnInit {
     this.actRouter.params.subscribe(async (res: any) => {
       this.groupChatArray = [];
       this.curruntPageValue = JSON.parse(localStorage.getItem('currentLocation'));
-     
+
       this.userDetail = JSON.parse(this.utilServ.getUserDetails());
       this.groupDetails = JSON.parse(localStorage.getItem('teamData'));
       this.getGroupChat();
       this.getChatHistory('');
-      this.socket.emit('grpmessageStatusUpdate', { userid: this.userDetail.id, readall : true , grpid : this.groupId});
+      this.socket.emit('grpmessageStatusUpdate', { userid: this.userDetail.id, readall: true, grpid: this.groupId });
       this.socket.on('grpmessageUpdate', (res) => {
         setTimeout(() => {
           // if(res.fromid == this.usersdetail.id){
-            this.groupChatArray.forEach(element => {
-              element.messages.forEach(subEle => {
-                if(res.status > subEle.msg_status){
-                  subEle.msg_status = res.status ;
-                }
+          this.groupChatArray.forEach(element => {
+            element.messages.forEach(subEle => {
+              if (res.status > subEle.msg_status) {
+                subEle.msg_status = res.status;
+              }
             });
           });
           // }else if(res.update){
@@ -128,9 +128,9 @@ export class GroupChatPage implements OnInit {
       });
       this.apiService.groupMessageReadUpdate(this.userDetail.id, this.groupId, this.groupDetails.type).subscribe((data: any) => { });
       this.socket.on('receive-group-message', (data) => {
-      // this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, rcv : true });
+        // this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, rcv : true });
 
-      this.curruntPageValue = JSON.parse(localStorage.getItem('currentLocation'));
+        this.curruntPageValue = JSON.parse(localStorage.getItem('currentLocation'));
 
         this.offset = 0;
         this.limit = 1;
@@ -143,25 +143,25 @@ export class GroupChatPage implements OnInit {
         if (this.curruntPageValue === "/chat/group-chat/" + this.groupId) {
           this.apiService.groupMessageReadUpdate(this.userDetail.id, this.groupId, this.groupDetails.type)
             .subscribe((response: any) => { });
-            if(data.message.userinfo.from_id !== this.userDetail.id){
+          if (data.message.userinfo.from_id !== this.userDetail.id) {
             // this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, rcv : true });
-            this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, read : true });
-              }
-        }else{
-          if(data.message.userinfo.from_id !== this.userDetail.id){
-            this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, rcv : true });
-            }
+            this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, read: true });
+          }
+        } else {
+          if (data.message.userinfo.from_id !== this.userDetail.id) {
+            this.socket.emit('grpmessageStatusUpdate', { status: 2, userid: this.userDetail.id, msgid: data.id, rcv: true });
+          }
         }
       });
       this.getLanguageStrings();
       let handler = Network.addListener('networkStatusChange', (status) => {
       });
       let status = await Network.getStatus();
-      if (status.connected === true){
+      if (status.connected === true) {
         this.onlineMode = true;
-       }else{
+      } else {
         this.onlineMode = false;
-     }
+      }
     });
   }
   ngOnInit() {
@@ -207,9 +207,9 @@ export class GroupChatPage implements OnInit {
     if (message !== '' || this.imageurls !== ['']) {
       const msg = this.formatString(message);
       let status = await Network.getStatus();
-      if (status.connected === true){
-         this.sentValue = 1
-        }else{
+      if (status.connected === true) {
+        this.sentValue = 1
+      } else {
         this.sentValue = 0
       }
       if (message !== '' && this.imageurls.length === 0) {
@@ -467,9 +467,9 @@ export class GroupChatPage implements OnInit {
     this.utilServ.showKeyBoard();
     if (this.platform.is('android')) {
       setTimeout(() => {
-       this.content.scrollToPoint(0, 99999999999999999999999999999999999999, 300);
+        this.content.scrollToPoint(0, 99999999999999999999999999999999999999, 300);
       }, 1000);
-     }
+    }
   }
   getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {

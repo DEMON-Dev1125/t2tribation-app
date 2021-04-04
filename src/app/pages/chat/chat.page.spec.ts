@@ -9,7 +9,7 @@ describe('ChatPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatPage ],
+      declarations: [ChatPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

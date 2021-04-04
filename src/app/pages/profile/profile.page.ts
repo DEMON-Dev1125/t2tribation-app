@@ -113,6 +113,7 @@ export class ProfilePage implements OnInit {
   guardianMinorFlag = false;
   acceptRejGuardAction = false;
   cancelGuardianMinorLink = false;
+  chatStatus = false;
 
   constructor(
     private location: Location,
@@ -168,6 +169,8 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.environment = environment;
+    // console.log("+++++", JSON.parse(localStorage.getItem("online")))
+    this.chatStatus = JSON.parse(localStorage.getItem("online"));
   }
 
   ionViewWillEnter() {

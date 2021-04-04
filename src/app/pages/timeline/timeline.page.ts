@@ -175,14 +175,14 @@ export class TimelinePage implements OnInit {
     this.actRouter.queryParams.subscribe(() => {
       this.fcmService.readNotification();
       this.userDetail = JSON.parse(this.utilServ.getUserDetails());
-      
+
       this.quickInfo = this.utilServ.userQuickInfo();
       this.webTrib = this.platform.is('desktop');
       this.eventCustom.destroy('imageReady');
-      if(this.utilServ.friendsList) {
+      if (this.utilServ.friendsList) {
         this.friendsList = this.utilServ.friendsList;
       }
-      this.setupBasicDetails();false
+      this.setupBasicDetails(); false
       if (!this.userDetail) {
         const iini = setInterval(() => {
           this.eventCustom.subscribe('userDetail', (e) => {
@@ -219,17 +219,17 @@ export class TimelinePage implements OnInit {
       this.eventCustom.publish('badgeCount', '');
       let fistLoginData;
       fistLoginData = JSON.parse(localStorage.getItem('userdetail'));
-      if(fistLoginData.first_login == 0){
+      if (fistLoginData.first_login == 0) {
         this.apiService.updateFirstLogin(this.userDetail.id).subscribe((res: any) => {
-          if(res){
+          if (res) {
             this.openWelcomeComp();
-           }
+          }
         });
         localStorage.removeItem('userdetail');
         this.userDetail.first_login = 1;
         localStorage.setItem('userdetail', JSON.stringify(this.userDetail));
-        }
-        this.socketAPI.emit('messageStatusUpdate', { status: 2, fromid: this.userDetail.id, update: 1  });
+      }
+      this.socketAPI.emit('messageStatusUpdate', { status: 2, fromid: this.userDetail.id, update: 1 });
 
     });
   }
@@ -270,7 +270,7 @@ export class TimelinePage implements OnInit {
     this.userInputElement = this.userInputViewChild.nativeElement;
     this.userInputElementForIos = this.userInputViewChildForIos.nativeElement;
   }
-  async openWelcomeComp(){
+  async openWelcomeComp() {
     const modal = await this.modalController.create({
       component: WelcomePageComponent,
       componentProps: {
@@ -278,7 +278,7 @@ export class TimelinePage implements OnInit {
       }
     });
     modal.onDidDismiss().then((data) => {
-     
+
     });
     return await modal.present();
 
@@ -634,11 +634,11 @@ export class TimelinePage implements OnInit {
           this.totalPost = postTemp.meta.total;
           this.noPost = false;
           this.apiService.getIntroVideoData().subscribe((res: any) => {
-            if(res){
+            if (res) {
               this.videoData = res.message;
-              if(this.videoData){
+              if (this.videoData) {
                 this.videoData.forEach(element => {
-                  if(element.content){
+                  if (element.content) {
                     element.content = this.utilServ.getLangByCode(element.content);
                     element.showMore = false
                   }
@@ -901,8 +901,8 @@ export class TimelinePage implements OnInit {
       urls.forEach((url) => {
         url.addEventListener('click', (event) => {
           const textOfLink = event.target.innerText;
-          if(textOfLink === 'Terms of Service' || textOfLink === 'Terms and conditions' || textOfLink === 'Privacy Policy' || textOfLink === 'Contact us' || textOfLink === 'More' || textOfLink === 'less' || textOfLink === 'Show less' || textOfLink === 'Show More'){
-          }else{
+          if (textOfLink === 'Terms of Service' || textOfLink === 'Terms and conditions' || textOfLink === 'Privacy Policy' || textOfLink === 'Contact us' || textOfLink === 'More' || textOfLink === 'less' || textOfLink === 'Show less' || textOfLink === 'Show More') {
+          } else {
             event.preventDefault();
             const x = event.target.href.split(/[\s/]+/);
             console.log("dcddddd", x);
@@ -1131,7 +1131,7 @@ export class TimelinePage implements OnInit {
         }]
       });
       await actionSheet.present();
-    }else if(this.platform.is('desktop')){
+    } else if (this.platform.is('desktop')) {
       const actionSheet = await this.actionSheetController.create({
         buttons: [{
           text: this.captureImageString,
@@ -1140,13 +1140,13 @@ export class TimelinePage implements OnInit {
             this.getImageForIos();
           }
         }
-        // }, {
-        //   text: this.captureVideoString,
-        //   handler: () => {
-        //     this.captureVideo();
-        //   }
-        // },
-        , {
+          // }, {
+          //   text: this.captureVideoString,
+          //   handler: () => {
+          //     this.captureVideo();
+          //   }
+          // },
+          , {
           text: this.pickImageString,
           handler: () => {
             this.nativeLib.takePicture(CameraSource.Photos);
@@ -1370,8 +1370,8 @@ export class TimelinePage implements OnInit {
       ? string.substring(0, length) + "..."
       : string;
   }
-  async tagSport(){
-  const  yesOrNo = true;
+  async tagSport() {
+    const yesOrNo = true;
     const modal = await this.modalController.create({
       component: SelectSportsOrLagacyComponent,
       componentProps: {
@@ -1380,21 +1380,21 @@ export class TimelinePage implements OnInit {
     });
     modal.onDidDismiss().then(data => {
       if (data.data) {
-          // console.log('Data:::', data.data);
-          this.tagSportId = data.data.data.id;
-          this.tagSportString = data.data.data.sportsName;
-          this.tagSportIcon = data.data.data.sportsIcon;
-          this.showClose = true;
-          this.taggedSportFlag = true;
+        // console.log('Data:::', data.data);
+        this.tagSportId = data.data.data.id;
+        this.tagSportString = data.data.data.sportsName;
+        this.tagSportIcon = data.data.data.sportsIcon;
+        this.showClose = true;
+        this.taggedSportFlag = true;
       }
     });
     return await modal.present();
   }
-  closeTag(){
-     this.tagSportString = 'Tag sport';
-     this.tagSportIcon = 'baseball';
-     this.tagSportId = null;
-     this.showClose = false;
-     this.taggedSportFlag = false;
+  closeTag() {
+    this.tagSportString = 'Tag sport';
+    this.tagSportIcon = 'baseball';
+    this.tagSportId = null;
+    this.showClose = false;
+    this.taggedSportFlag = false;
   }
 }

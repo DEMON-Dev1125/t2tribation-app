@@ -9,7 +9,7 @@ describe('ChangePasswordPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangePasswordPage ],
+      declarations: [ChangePasswordPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

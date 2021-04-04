@@ -115,28 +115,28 @@ export class DirectChatPage implements OnInit {
       this.data1 = '';
       this.getLanguageStrings();
 
-   
+
       this.socketAPI.on('messageUpdate', (res) => {
-      setTimeout(() => {
-        if(res.fromid == this.usersdetail.id){
-          this.chatArray.forEach(element => {
-            element.messages.forEach(subEle => {
-              if(res.status > subEle.status){
-                subEle.status = res.status ;
-              }
-          });
-        });
-        }else if(res.update){
-          this.chatArray.forEach(element => {
-            element.messages.forEach(subEle => {
-              if(res.status > subEle.status){
-                subEle.status = res.status ;
-              }
-          });
-        });
-        }
-      }, 1000);
-    });
+        setTimeout(() => {
+          if (res.fromid == this.usersdetail.id) {
+            this.chatArray.forEach(element => {
+              element.messages.forEach(subEle => {
+                if (res.status > subEle.status) {
+                  subEle.status = res.status;
+                }
+              });
+            });
+          } else if (res.update) {
+            this.chatArray.forEach(element => {
+              element.messages.forEach(subEle => {
+                if (res.status > subEle.status) {
+                  subEle.status = res.status;
+                }
+              });
+            });
+          }
+        }, 1000);
+      });
     });
     this.soketRecive();
   }
@@ -166,16 +166,16 @@ export class DirectChatPage implements OnInit {
         // }, 550);
         if (this.curruntPageValue === "/chat/direct-chat/" + this.chatUserId) {
           this.setMessageReadFlag(this.usersdetail.id, this.chatUserId);
-          if(msg.userinfo.from_id !== this.usersdetail.id){
-          this.socketAPI.emit('messageStatusUpdate', { status: 3, fromid: this.chatUserId, toid: this.usersdetail.id, msgid:  msg.id});
+          if (msg.userinfo.from_id !== this.usersdetail.id) {
+            this.socketAPI.emit('messageStatusUpdate', { status: 3, fromid: this.chatUserId, toid: this.usersdetail.id, msgid: msg.id });
           }
-        }else{
-          if(msg.userinfo.from_id !== this.usersdetail.id){
-          this.socketAPI.emit('messageStatusUpdate', { status: 2, fromid: this.chatUserId, toid: this.usersdetail.id, msgid:  msg.id });
+        } else {
+          if (msg.userinfo.from_id !== this.usersdetail.id) {
+            this.socketAPI.emit('messageStatusUpdate', { status: 2, fromid: this.chatUserId, toid: this.usersdetail.id, msgid: msg.id });
+          }
         }
       }
-        }
-       
+
     });
   }
   ngOnInit() {
@@ -271,7 +271,7 @@ export class DirectChatPage implements OnInit {
         this.limitReached = true;
       }
     });
-   
+
   }
   loadMoreMessage(e) {
     if (this.loadMoreFlag === true) {
@@ -294,9 +294,9 @@ export class DirectChatPage implements OnInit {
     if (mssage !== '' || this.data1 !== '') {
       const msg = this.formatString(mssage);
       let status = await Network.getStatus();
-      if (status.connected === true){
-         this.sentValue = 1
-        }else{
+      if (status.connected === true) {
+        this.sentValue = 1
+      } else {
         this.sentValue = 0
       }
       if (mssage !== '' && this.data1 === '' && msg !== undefined) {
@@ -382,12 +382,12 @@ export class DirectChatPage implements OnInit {
   openKeyboard() {
     this.utilServ.showKeyBoard();
     if (this.platform.is('android')) {
-     setTimeout(() => {
-      this.content.scrollToPoint(0, 99999999999999999999999999999999999999, 300);
-     }, 1000);
+      setTimeout(() => {
+        this.content.scrollToPoint(0, 99999999999999999999999999999999999999, 300);
+      }, 1000);
     }
 
-   
+
   }
   setMessageReadFlag(myUserId, chatUserId) {
     this.apiService.setReadMessageFlag(myUserId, chatUserId).subscribe((res: any) => {

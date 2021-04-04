@@ -31,7 +31,7 @@ export class MultimediaViewComponent implements OnInit {
     private actRouter: ActivatedRoute,) {
     this.actRouter.queryParams.subscribe(params => {
     });
-   
+
   }
   onIntersection($event, i) {
     // const { [InViewportMetadata]: { entry }, target } = $event;
@@ -57,7 +57,7 @@ export class MultimediaViewComponent implements OnInit {
       if (this.imageArray[index].post_type === 'video') {
         const vid1 = <HTMLVideoElement>document.getElementById('myVideo' + index);
         vid1.play();
-      //  this.playVideo(index);
+        //  this.playVideo(index);
       }
     });
   }
@@ -124,16 +124,16 @@ export class MultimediaViewComponent implements OnInit {
       const nextindex = index + 1;
       if (this.imageArray[nextindex]) {
         // if (this.imageArray[nextindex].post_type !== 'image') {
-          const vid1 = <HTMLVideoElement>document.getElementById('myVideo' + nextindex);
-          vid1.pause();
+        const vid1 = <HTMLVideoElement>document.getElementById('myVideo' + nextindex);
+        vid1.pause();
         // }
       }
     });
     this.slides.getPreviousIndex().then(index => {
       if (this.imageArray[index]) {
         // if (this.imageArray[index].post_type !== 'image') {
-          const vid1 = <HTMLVideoElement>document.getElementById('myVideo' + index);
-          vid1.pause();
+        const vid1 = <HTMLVideoElement>document.getElementById('myVideo' + index);
+        vid1.pause();
         // }
       }
     });

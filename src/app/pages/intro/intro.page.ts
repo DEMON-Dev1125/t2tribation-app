@@ -68,7 +68,7 @@ export class IntroPage implements OnInit {
     this.utilServ.setIntroStatus(1);
     this.utilServ.navLogin();
   }
-  nextSlide(i){
+  nextSlide(i) {
     this.slides.slideTo(i + 1, 10);
   }
 

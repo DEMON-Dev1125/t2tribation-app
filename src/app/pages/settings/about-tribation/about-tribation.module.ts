@@ -17,4 +17,4 @@ import { AboutTribationPage } from './about-tribation.page';
   ],
   declarations: [AboutTribationPage]
 })
-export class AboutTribationPageModule {}
+export class AboutTribationPageModule { }

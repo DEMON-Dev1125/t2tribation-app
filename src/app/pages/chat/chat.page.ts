@@ -42,7 +42,7 @@ export class ChatPage implements OnInit {
   noGroupChats = false;
   unreadChatArray = false;
   unreadGroupChatArray = false;
- 
+
   // String
   chatString = 'Chats';
   messageString = 'Message';
@@ -148,7 +148,7 @@ export class ChatPage implements OnInit {
         this.chatmessages = res.message;
         this.chatArray = this.chatmessages;
         this.chatArray.forEach(element => {
-          if(element.unreaded === 1){
+          if (element.unreaded === 1) {
             this.unreadChatArray = true;
           }
         });
@@ -166,21 +166,21 @@ export class ChatPage implements OnInit {
 
   refreshGroupchat() {
     this.apiService.getGroupChatList(this.usersdetail.id).subscribe((res: any) => {
-      if(res.message.length > 0){
+      if (res.message.length > 0) {
         this.groupArray = res.message;
         this.groupChatArray = this.groupArray;
         this.noGroupChats = false;
         this.groupChatArray.forEach(element => {
-          if(element.msgcount !== 0){
+          if (element.msgcount !== 0) {
             this.unreadGroupChatArray = true;
           }
         });
         this.utilServ.hideLoaderWait();
         this.utilServ.hideLoaderWaitAMin();
-      }else{
+      } else {
         this.noGroupChats = true;
       }
-    
+
     });
   }
 

@@ -29,7 +29,8 @@ export class ForgetPassPage implements OnInit {
     private utilServ: GenralUtilsService,
     private apiService: ApiService,
     private actRouter: ActivatedRoute,
-  ) {this.actRouter.queryParams.subscribe(() => {
+  ) {
+    this.actRouter.queryParams.subscribe(() => {
       this.getLanguageStrings();
     });
   }

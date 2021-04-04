@@ -9,7 +9,7 @@ describe('EventsPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventsPage ],
+      declarations: [EventsPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

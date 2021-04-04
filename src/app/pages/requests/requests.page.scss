@@ -7,25 +7,25 @@
 }
 
 .acceptRequest {
-  --background : #112 !important;
+  --background: #112 !important;
   padding-right: 3%;
 }
 
 .deleteRequest {
-  color       : black;
+  color: black;
   --background: #dadce4;
 }
 
 .topright {
-  position : absolute;
-  top      : 10%;
-  right    : 6px;
+  position: absolute;
+  top: 10%;
+  right: 6px;
   font-size: 67%;
 }
 
 .two {
   display: flex;
-  color  : red;
+  color: red;
 }
 
 .cardMaxHeight {
@@ -42,33 +42,33 @@
 }
 
 .seg_style {
-  border          : none !important;
+  border: none !important;
   background-color: #bdc1c5;
-  color           : white !important;
-  border-radius   : 5px !important;
-  width           : 96%;
-  margin          : 2%;
+  color: white !important;
+  border-radius: 5px !important;
+  width: 96%;
+  margin: 2%;
 }
 
 .seg_btn {
-  text-transform      : capitalize;
+  text-transform: capitalize;
   --background-checked: #171434;
-  color               : #fff !important;
-  --border-color      : unset;
-  --indicator-color   : #112;
-  min-width           : fit-content;
-  min-height          : fit-content;
-  width               : fit-content;
-  height              : fit-content;
+  color: #fff !important;
+  --border-color: unset;
+  --indicator-color: #112;
+  min-width: fit-content;
+  min-height: fit-content;
+  width: fit-content;
+  height: fit-content;
   // max-width           : fit-content;
-  max-height          : fit-content;
+  max-height: fit-content;
   // --padding-start:2px;
   // --padding-end: 2px;
 }
 
 .segment-button-checked {
-  background   : #0d0439;
-  color        : #fff !important;
+  background: #0d0439;
+  color: #fff !important;
   border-radius: 5px !important;
 }
 .avtr_and_name {
@@ -77,7 +77,7 @@
   align-items: center;
   margin: auto;
   position: absolute;
-  top: 32.5%
+  top: 32.5%;
 }
 .frndReqBorderBtm {
   border-bottom: 0.5px solid #ec5529;

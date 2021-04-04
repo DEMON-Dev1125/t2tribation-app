@@ -98,7 +98,7 @@ export class ScoutsPage implements OnInit {
   ngOnInit() {
     this.prospectsList = [];
     this.environment = environment;
-    
+
     this.setupBasic();
   }
   setupBasic() {
@@ -417,11 +417,11 @@ export class ScoutsPage implements OnInit {
     }
   }
   openPortfolio(p) {
-    if(this.clickedonChat === false){
+    if (this.clickedonChat === false) {
       this.router.navigate([`/profile/${p.id}/portfolio`]);
     }
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.scoutsToolString = this.utilServ.getLangByCode('scout_tool');
       this.endOfSearchResultString = this.utilServ.getLangByCode('endOfSearchResultString');

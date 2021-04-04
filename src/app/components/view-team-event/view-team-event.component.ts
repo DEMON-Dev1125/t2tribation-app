@@ -68,7 +68,7 @@ export class ViewTeamEventComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+
   }
   checkAndAddToCalnder() {
     let date = new Date(this.eventList.event_date);
@@ -332,7 +332,7 @@ export class ViewTeamEventComponent implements OnInit {
     this.demo = false;
     localStorage.setItem('eventDemo', 'true');
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.eventTitleString = this.utilServ.getLangByCode('event_title');
       this.VieweventTitleString = this.utilServ.getLangByCode('view_event');

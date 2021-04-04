@@ -27,7 +27,7 @@ export class HelpCenterPage implements OnInit {
     private utilServ: GenralUtilsService,
   ) {
     this.actRouter.queryParams.subscribe(() => {
-    this.getLanguageStrings();
+      this.getLanguageStrings();
     });
     this.apiService.contactus().pipe().subscribe((res: any) => {
       // console.log(res.message.info);
@@ -64,7 +64,7 @@ export class HelpCenterPage implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
 
   ionViewWillEnter() {
@@ -74,7 +74,7 @@ export class HelpCenterPage implements OnInit {
   back() {
     this.location.back();
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.helpcenterString = this.utilServ.getLangByCode('help_cent');
       this.bussinessInquiryString = this.utilServ.getLangByCode('bussiness_inquiry');

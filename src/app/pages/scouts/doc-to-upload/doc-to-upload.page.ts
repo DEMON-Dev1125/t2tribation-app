@@ -51,9 +51,9 @@ export class DocToUploadPage implements OnInit {
     this.actRouter.queryParams.subscribe(() => {
       this.utilServ.getScoutStatusFrom();
       this.apiService.getScoutFilePaymentStatus(this.userDetail.id).subscribe((res: any) => {
-        if(res.message.fileCount === 2 && res.message.paymentDetails === this.userDetail.id){
+        if (res.message.fileCount === 2 && res.message.paymentDetails === this.userDetail.id) {
           this.apiService.getScoutPaymentStatus(this.userDetail.id).subscribe((res: any) => {
-            if(res.message.status === 1 && res.message.mode !== null){
+            if (res.message.status === 1 && res.message.mode !== null) {
               this.utilServ.setScoutStatus(true);
               this.router.navigate(['/scouts']);
             }
@@ -118,7 +118,7 @@ export class DocToUploadPage implements OnInit {
           this.diasbleContinue = false;
           // this.pending = true;
           // console.log('2');
-        }else if(data.message.fileCount === 0){
+        } else if (data.message.fileCount === 0) {
           this.pending = false;
           this.disabledoc2 = false;
           this.disabledoc1 = false;

@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'about-team',
-    loadChildren: () => import('./about-team/about-team.module').then( m => m.AboutTeamPageModule)
+    loadChildren: () => import('./about-team/about-team.module').then(m => m.AboutTeamPageModule)
   },
   {
     path: 'create-team',
-    loadChildren: () => import('./create-team/create-team.module').then( m => m.CreateTeamPageModule)
+    loadChildren: () => import('./create-team/create-team.module').then(m => m.CreateTeamPageModule)
   }
 ];
 
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TeamsPageRoutingModule {}
+export class TeamsPageRoutingModule { }

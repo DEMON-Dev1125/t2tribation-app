@@ -18,24 +18,24 @@ export class WelcomePageComponent implements OnInit {
   promoConstString = 'Promotional Contest';
   welcomeToString = 'Welcome to';
 
-  constructor( private modalController: ModalController,
-    private utilServ: GenralUtilsService) { 
-      this.getLanguageStrings();
+  constructor(private modalController: ModalController,
+    private utilServ: GenralUtilsService) {
+    this.getLanguageStrings();
     this.userDetail = JSON.parse(this.utilServ.getUserDetails());
   }
 
 
-  ngOnInit() {}
-  onClickContinue(){
+  ngOnInit() { }
+  onClickContinue() {
     this.modalController.dismiss();
   }
   getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
-    this.thanksForLoyaltyString = this.utilServ.getLangByCode('thanksForLoyaltyString');
-    this.loyaltyDescString = this.utilServ.getLangByCode('loyaltyDescString');
-    this.goodLuckString = this.utilServ.getLangByCode('goodLuckString');
-    this.promoConstString = this.utilServ.getLangByCode('promoConstString');
-    this.welcomeToString = this.utilServ.getLangByCode('welcomeToString');
+      this.thanksForLoyaltyString = this.utilServ.getLangByCode('thanksForLoyaltyString');
+      this.loyaltyDescString = this.utilServ.getLangByCode('loyaltyDescString');
+      this.goodLuckString = this.utilServ.getLangByCode('goodLuckString');
+      this.promoConstString = this.utilServ.getLangByCode('promoConstString');
+      this.welcomeToString = this.utilServ.getLangByCode('welcomeToString');
     }
   }
 }

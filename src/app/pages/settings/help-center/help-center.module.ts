@@ -17,4 +17,4 @@ import { HelpCenterPage } from './help-center.page';
   ],
   declarations: [HelpCenterPage]
 })
-export class HelpCenterPageModule {}
+export class HelpCenterPageModule { }

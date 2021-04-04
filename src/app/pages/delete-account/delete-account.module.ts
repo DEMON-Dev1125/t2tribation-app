@@ -17,4 +17,4 @@ import { DeleteAccountPage } from './delete-account.page';
   ],
   declarations: [DeleteAccountPage]
 })
-export class DeleteAccountPageModule {}
+export class DeleteAccountPageModule { }

@@ -9,7 +9,7 @@ describe('NotificationPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotificationPage ],
+      declarations: [NotificationPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

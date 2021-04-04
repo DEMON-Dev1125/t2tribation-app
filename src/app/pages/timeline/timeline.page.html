@@ -150,7 +150,7 @@
       </ion-refresher>
 
       <!-- Create Post Card -->
-      <ion-card style="border-radius: 20px">
+      <ion-card>
         <!-- Card Header -->
         <ion-item
           lines="none"
@@ -746,32 +746,30 @@
                   button
                   (click)="likePost(feed.id, i, feed.user.id)"
                 >
-                  <ion-icon
-                    src="../../../assets/iconsSvg/heart-outline.svg"
-                    *ngIf="feed.liked===0"
-                  ></ion-icon>
-                  <span *ngIf="feed.likes === 0">
-                    <ion-text style="color: #9e9bb0"> &nbsp; Like </ion-text>
-                  </span>
-                  <ion-icon
-                    src="../../../assets/iconsSvg/heart.svg"
-                    *ngIf="feed.liked !== 0"
-                  ></ion-icon>
-                  <span *ngIf="feed.likes !== 0">
-                    <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
-                  </span>
+                  <div *ngIf="feed.likes === 0" style="display: flex">
+                    <ion-icon
+                      src="../../../assets/iconsSvg/heart-outline.svg"
+                    ></ion-icon>
+                    <span>
+                      <ion-text style="color: #9e9bb0"> &nbsp; Like </ion-text>
+                    </span>
+                  </div>
+                  <div *ngIf="feed.likes > 0" style="display: flex">
+                    <ion-icon
+                      src="../../../assets/iconsSvg/heart.svg"
+                    ></ion-icon>
+                    <span>
+                      <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
+                    </span>
+                  </div>
                 </ion-col>
                 <ion-col
                   class="colLikeShare"
                   button
                   (click)="commentPost(feed, i)"
                 >
-                  <!-- <span>
-                    <ion-text style="color: #9e9bb0">
-                      &nbsp; Comments
-                    </ion-text>
-                  </span> -->
                   <ion-icon
+                    style="color: #9e9bb0"
                     name="chatbox-outline"
                     *ngIf="feed.commented===0"
                   ></ion-icon>

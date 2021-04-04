@@ -17,4 +17,4 @@ import { GroupChatPage } from './group-chat.page';
   ],
   declarations: [GroupChatPage]
 })
-export class GroupChatPageModule {}
+export class GroupChatPageModule { }

@@ -76,25 +76,25 @@ export class LoginPage implements OnInit {
     private router: Router,
     private utilServ: GenralUtilsService,
     private fcmServ: FcmServiceService) {
-      this.actRouter.queryParams.subscribe(() => {
-        this.getLanguageStrings();
-        console.log('Login Sending data', JSON.parse(this.utilServ.getUserDetails()));
-        this.lastLoginUser = JSON.parse(localStorage.getItem('lastLoginUser'));
-        this.logInOrNot = this.utilServ.checkAlredyLoggedIn();
-        if (this.logInOrNot === true) {
-          this.utilServ.navTimeline();
-          this.api.reloadApp();
-        } else if (this.logInOrNot === false) {
-          setTimeout(() => {
-            SplashScreen.hide();
-            const minor = JSON.parse(localStorage.getItem('myMinors'));
-            if (minor.length > 0) {
-              this.avilableMinors = true;
-              this.minorList = minor;
-              this.filteredMinorList = this.minorList;
-            }
-          }, 500);
-        }
+    this.actRouter.queryParams.subscribe(() => {
+      this.getLanguageStrings();
+      console.log('Login Sending data', JSON.parse(this.utilServ.getUserDetails()));
+      this.lastLoginUser = JSON.parse(localStorage.getItem('lastLoginUser'));
+      this.logInOrNot = this.utilServ.checkAlredyLoggedIn();
+      if (this.logInOrNot === true) {
+        this.utilServ.navTimeline();
+        this.api.reloadApp();
+      } else if (this.logInOrNot === false) {
+        setTimeout(() => {
+          SplashScreen.hide();
+          const minor = JSON.parse(localStorage.getItem('myMinors'));
+          if (minor.length > 0) {
+            this.avilableMinors = true;
+            this.minorList = minor;
+            this.filteredMinorList = this.minorList;
+          }
+        }, 500);
+      }
     });
   }
 
@@ -151,14 +151,14 @@ export class LoginPage implements OnInit {
   //   // console.log(':::::::::::::::::::::loginRoot::::::::::::::::::::::::::::');
   //   this.buttonLogin = false;
   //   this.loadingController.dismiss();
-    
+
   //   this.fcmServ.deleteToken();
   //   this.devicetoken = this.fcmServ.newToken();
-    
+
   //   this.device = localStorage.getItem('device');
-    
+
   //   this.eventCustom.subscribe('newDeviceTocken', (token: any) => {
-      
+
   //     // this.hide = !this.hide;
   //     this.devicetoken = token;
   //     console.log('this.devicetoken', this.devicetoken);
@@ -225,23 +225,23 @@ export class LoginPage implements OnInit {
           this.okButtonMessageAlert(res.message);
           // this.hide = true;
         } else if (res.success === 1) {
-          const localLang = localStorage.getItem('profileLang') || res.message.language ||'english';
-           this.api.saveChangedLanguage(res.message.id, localLang).subscribe((language: any) => {
-              if(language){
-                res.message.language = localLang;
-                localStorage.setItem('userdetail', JSON.stringify(res.message));
-                localStorage.removeItem('lastLoginUser');
-                localStorage.removeItem('myMinors');
-                this.utilServ.setUpUser();
-                this.showLoader();
-                this.log.reset();
-                this.buttonLogin = true;
-                localStorage.setItem('lastLoginUser', JSON.stringify(res.message));
-                this.utilServ.getMyMinors(res.message.id);
-                this.utilServ.getUserStatus(res.message.id);
-              }
-           });
-          
+          const localLang = localStorage.getItem('profileLang') || res.message.language || 'english';
+          this.api.saveChangedLanguage(res.message.id, localLang).subscribe((language: any) => {
+            if (language) {
+              res.message.language = localLang;
+              localStorage.setItem('userdetail', JSON.stringify(res.message));
+              localStorage.removeItem('lastLoginUser');
+              localStorage.removeItem('myMinors');
+              this.utilServ.setUpUser();
+              this.showLoader();
+              this.log.reset();
+              this.buttonLogin = true;
+              localStorage.setItem('lastLoginUser', JSON.stringify(res.message));
+              this.utilServ.getMyMinors(res.message.id);
+              this.utilServ.getUserStatus(res.message.id);
+            }
+          });
+
         }
       },
         error => {
@@ -449,13 +449,13 @@ export class LoginPage implements OnInit {
   //       });
   // }
 
-  async changeLanguage(){
-  const modal = await this.modalController.create({
+  async changeLanguage() {
+    const modal = await this.modalController.create({
       component: IntroLanguageComponent,
     });
     modal.onDidDismiss().then(data => {
       if (data.data) {
-       
+
       }
     });
     return await modal.present();

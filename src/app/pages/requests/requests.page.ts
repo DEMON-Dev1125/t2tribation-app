@@ -107,7 +107,7 @@ export class RequestsPage implements OnInit {
         this.checkReqExist();
         this.onRequestPage();
         this.eventCustom.publish('badgeCount', res);
-        if(this.checkedsegment !== 'friend'){
+        if (this.checkedsegment !== 'friend') {
           this.unreadFrndReq = true;
         }
       });
@@ -123,7 +123,7 @@ export class RequestsPage implements OnInit {
         this.eventCustom.publish('badgeCount', res);
         this.getTeamReq();
         this.checkReqExist();
-        if(this.checkedsegment !== 'team'){
+        if (this.checkedsegment !== 'team') {
           this.unreadTeamReq = true;
         }
       });
@@ -140,7 +140,7 @@ export class RequestsPage implements OnInit {
         this.eventCustom.publish('badgeCount', res);
         this.getGrpChatReq();
         this.checkReqExist();
-        if(this.checkedsegment !== 'groupChat'){
+        if (this.checkedsegment !== 'groupChat') {
           this.unreadGrpReq = true;
         }
       });
@@ -268,13 +268,13 @@ export class RequestsPage implements OnInit {
   }
   segmentChanged(ev) {
     this.checkedsegment = ev.detail.value;
-    if(this.checkedsegment === "friend"){
+    if (this.checkedsegment === "friend") {
       this.unreadFrndReq = false;
     }
-    if(this.checkedsegment === "team"){
+    if (this.checkedsegment === "team") {
       this.unreadTeamReq = false;
     }
-    if(this.checkedsegment === "groupChat"){
+    if (this.checkedsegment === "groupChat") {
       this.unreadGrpReq = false;
     }
   }

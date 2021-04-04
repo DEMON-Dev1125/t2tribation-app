@@ -55,7 +55,7 @@ export class CreateTeamPage implements OnInit {
     this.imageprofile = `${environment.apiUrl}v1/api/post/imagecall_mobile_url?imagepath=profile/cover1.jpg`;
     this.actRouter.queryParams.subscribe(() => {
       this.getLanguageStrings();
-      });
+    });
   }
 
   ngOnInit() {
@@ -112,7 +112,7 @@ export class CreateTeamPage implements OnInit {
   back() {
     this.location.back();
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.typeTeamNameString = this.utilServ.getLangByCode('enter_team_name');
       this.typeTeamDescString = this.utilServ.getLangByCode('type_your_team_description');

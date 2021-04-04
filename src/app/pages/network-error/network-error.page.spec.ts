@@ -9,7 +9,7 @@ describe('NetworkErrorPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NetworkErrorPage ],
+      declarations: [NetworkErrorPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

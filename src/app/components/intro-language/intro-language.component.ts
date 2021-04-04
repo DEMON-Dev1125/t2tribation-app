@@ -12,23 +12,24 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./intro-language.component.scss'],
 })
 export class IntroLanguageComponent implements OnInit {
-  tribLanguages : [];
+  tribLanguages: [];
   languagevalue;
   langLibrary = null;
 
   // Strings
   languageString = 'Language';
   okString = 'Ok';
-  constructor(  private utilServ: GenralUtilsService,
+  constructor(private utilServ: GenralUtilsService,
     // private location: Location,
     private actRouter: ActivatedRoute,
     private modalController: ModalController,
-    private apiService: ApiService) {   
-      this.actRouter.queryParams.subscribe(() => {
+    private apiService: ApiService) {
+    this.actRouter.queryParams.subscribe(() => {
       this.languagevalue = (localStorage.getItem('profileLang') || 'english');
 
-        this.getLanguages();
-    });}
+      this.getLanguages();
+    });
+  }
 
   ngOnInit() {
     // this.languagevalue = localStorage.getItem('profileLang');
@@ -46,7 +47,7 @@ export class IntroLanguageComponent implements OnInit {
     // this.apiService.connectFuntion();
     this.apiService.tribationLanguages().subscribe((res: any) => {
       // this.apiService.connectFuntion();
-      if(res){
+      if (res) {
         this.tribLanguages = res.message;
         // for (let g = 0; g < this.tribLanguages.length; g++) {
         //   if (this.tribLanguages[g].status === 1) {
@@ -58,8 +59,8 @@ export class IntroLanguageComponent implements OnInit {
         console.log(":::::::", this.tribLanguages)
       }
       // if (this.tribLanguages) {
-        //  tslint:disable-next-line: prefer-for-of
-       
+      //  tslint:disable-next-line: prefer-for-of
+
       //   this.utilServ.hideLoaderWaitAMin();
       // } else {
       //   this.apiService.connectFuntion();
@@ -83,15 +84,15 @@ export class IntroLanguageComponent implements OnInit {
         window.location.reload();
       }
     }, error => {
-       localStorage.setItem('online', 'false');
+      localStorage.setItem('online', 'false');
     });
     this.back();
   }
- back() {
-  this.modalController.dismiss({
-    dismissed: true,
-    data: null
-  });
+  back() {
+    this.modalController.dismiss({
+      dismissed: true,
+      data: null
+    });
   }
 }
 

@@ -9,7 +9,7 @@ describe('DeleteAccountPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteAccountPage ],
+      declarations: [DeleteAccountPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

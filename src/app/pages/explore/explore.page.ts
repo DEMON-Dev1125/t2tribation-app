@@ -27,20 +27,20 @@ export class ExplorePage implements OnInit {
 
   exploreString = 'Explore';
 
-  constructor(    
+  constructor(
     private actRouter: ActivatedRoute,
-    private apiService: ApiService, 
+    private apiService: ApiService,
     private location: Location,
     private router: Router,
-    private modalcontrolller: ModalController, 
-    private utilServ: GenralUtilsService) { 
+    private modalcontrolller: ModalController,
+    private utilServ: GenralUtilsService) {
     this.actRouter.queryParams.subscribe(() => {
-    this.environment = environment;
-    this.getLanguageStrings();
+      this.environment = environment;
+      this.getLanguageStrings();
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ionViewWillEnter() {
     this.currentLocation = JSON.parse(localStorage.getItem('currentLocation'));
@@ -49,23 +49,23 @@ export class ExplorePage implements OnInit {
     this.getExploreData(this.postId);
   }
 
-  getExploreData(postId){
+  getExploreData(postId) {
     this.apiService.getExploreAssets(postId, this.limitOfResults, this.skipFirst).subscribe((res: any) => {
-      if(res.message.length > 0){
+      if (res.message.length > 0) {
         const temp = res.message;
-        if(!this.exploreAssests){
+        if (!this.exploreAssests) {
           this.exploreAssests = temp;
-        }else{
+        } else {
           temp.forEach(element => {
             this.exploreAssests.push(element);
           });
         }
-       }else{
-         this.limitreached = true;
-       }
+      } else {
+        this.limitreached = true;
+      }
     });
   }
-  loadMore(e){
+  loadMore(e) {
     this.skipFirst += 20;
     this.getExploreData(this.postId);
     setTimeout(() => {
@@ -80,7 +80,7 @@ export class ExplorePage implements OnInit {
   async openMultiMedia(fullAsserts, i, postType) {
     if (this.modalOpen === false) {
       this.modalOpen = true;
-      const list = [{ asset_url: `${fullAsserts}`, post_type: postType , asset_type: postType }];
+      const list = [{ asset_url: `${fullAsserts}`, post_type: postType, asset_type: postType }];
       const xDx = {
         asserts: list,
         currentIndex: 0
@@ -108,7 +108,7 @@ export class ExplorePage implements OnInit {
   }
   getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
-      this.exploreString = this.utilServ.getLangByCode('exploreString'); 
+      this.exploreString = this.utilServ.getLangByCode('exploreString');
     }
   }
 }

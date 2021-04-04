@@ -17,4 +17,4 @@ import { NetworkErrorPage } from './network-error.page';
   ],
   declarations: [NetworkErrorPage]
 })
-export class NetworkErrorPageModule {}
+export class NetworkErrorPageModule { }

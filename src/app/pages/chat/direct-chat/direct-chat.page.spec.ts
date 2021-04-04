@@ -9,7 +9,7 @@ describe('DirectChatPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectChatPage ],
+      declarations: [DirectChatPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

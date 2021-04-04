@@ -530,7 +530,7 @@ export class EditPostComponent implements OnInit {
         }]
       });
       await actionSheet.present();
-    }else if(this.platform.is('desktop')){
+    } else if (this.platform.is('desktop')) {
       const actionSheet = await this.actionSheetController.create({
         buttons: [{
           text: this.captureImageString,
@@ -538,7 +538,7 @@ export class EditPostComponent implements OnInit {
             this.nativeLib.takePicture(CameraSource.Camera);
             this.getImageForIos();
           }
-        }, 
+        },
         // {
         //   text: this.captureVideoString,
         //   handler: () => {

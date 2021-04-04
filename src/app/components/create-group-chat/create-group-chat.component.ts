@@ -70,9 +70,9 @@ export class CreateGroupChatComponent implements OnInit {
           this.imageGroup = data.message.original;
           this.imageGroupThumb = data.message.thumbnail;
           this.eventCustom.destroy('imageReady');
-        } else { 
+        } else {
           // console.log('can not get image data');
-         }
+        }
       },
         (error: any) => {
           // console.log('Error' + '' + 'server Issue');

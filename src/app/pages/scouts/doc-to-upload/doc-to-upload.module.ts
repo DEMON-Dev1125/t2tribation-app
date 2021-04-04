@@ -17,4 +17,4 @@ import { DocToUploadPage } from './doc-to-upload.page';
   ],
   declarations: [DocToUploadPage]
 })
-export class DocToUploadPageModule {}
+export class DocToUploadPageModule { }

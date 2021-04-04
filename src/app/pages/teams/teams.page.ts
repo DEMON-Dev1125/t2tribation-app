@@ -60,7 +60,7 @@ export class TeamsPage implements OnInit {
 
   ngOnInit() {
     this.environment = environment;
-  
+
   }
 
   ionViewWillEnter() {
@@ -170,7 +170,7 @@ export class TeamsPage implements OnInit {
       confirmLeave.present();
     }
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.deleteString = this.utilServ.getLangByCode('delete');
       this.cancelString = this.utilServ.getLangByCode('cancel');

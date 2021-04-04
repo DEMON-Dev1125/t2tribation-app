@@ -9,7 +9,7 @@ describe('LanguagePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LanguagePage ],
+      declarations: [LanguagePage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

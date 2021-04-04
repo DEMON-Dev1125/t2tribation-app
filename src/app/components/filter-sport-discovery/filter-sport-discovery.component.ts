@@ -30,7 +30,7 @@ export class FilterSportDiscoveryComponent implements OnInit {
     private utilServ: GenralUtilsService,
     private router: Router,
     private apiService: ApiService,
-    private modalController : ModalController) { 
+    private modalController: ModalController) {
     if (this.navParams.get('data')) {
       this.sportData = this.navParams.get('data');
       this.getFilteredSport();
@@ -42,12 +42,12 @@ export class FilterSportDiscoveryComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   search(x) {
     if (x) {
       // this.apiService.serachInApp(x).subscribe((res: any) => {
-       
+
       // });
     }
   }
@@ -55,47 +55,47 @@ export class FilterSportDiscoveryComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.searchString = this.utilServ.getLangByCode('search');
       this.tryChangeFilterString = this.utilServ.getLangByCode('tryChangeFilterString');
       this.allCaughtUpString = this.utilServ.getLangByCode('allCaughtUpString');
     }
   }
-  loadMore(e){
+  loadMore(e) {
     // if (this.notificationList) {
     //   if ((this.totalNotification === this.notificationList.length) || (this.totalNotification <= this.notificationList.length)) {
     //     this.limitReached = true;
     //   } else {
-        this.skipFirst += 20;
-        this.getFilteredSport();
+    this.skipFirst += 20;
+    this.getFilteredSport();
     //   }
     // }
     setTimeout(() => {
       e.target.complete();
     }, 500);
   }
-  onClickDis(discoveryData){
+  onClickDis(discoveryData) {
     this.back();
-    localStorage.setItem('discoveryData', JSON.stringify(discoveryData) );
+    localStorage.setItem('discoveryData', JSON.stringify(discoveryData));
     this.router.navigate([`explore/${discoveryData.post_id}`]);
   }
-  getFilteredSport(){
+  getFilteredSport() {
     this.apiService.getFilteredSports(this.sportData.id, this.limitOfResults, this.skipFirst).subscribe((res: any) => {
-      if(res.message.length > 0){
+      if (res.message.length > 0) {
         // console.log('sdcsff::::::', res);
         const temp = res.message;
-        if(!this.filteredSportData){
+        if (!this.filteredSportData) {
           this.filteredSportData = temp;
-        }else{
+        } else {
           temp.forEach(element => {
             this.filteredSportData.push(element);
           });
         }
-       }else {
+      } else {
         //  this.filteredSportData = res.message ;
-         this.limitreached = true;
-       }
+        this.limitreached = true;
+      }
     });
   }
 }

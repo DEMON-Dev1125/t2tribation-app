@@ -90,6 +90,10 @@
       >
         <ion-icon name="camera"></ion-icon>
       </div>
+      <div *ngIf="userDetail.id!==profileId">
+        <span class="dot-online" *ngIf="chatStatus"></span>
+        <span class="dot-offline" *ngIf="!chatStatus"></span>
+      </div>
     </div>
 
     <div style="width: 100%; text-align: center">
@@ -454,7 +458,7 @@
                       height: auto;
                       width: 100%;
                       object-fit: cover;
-                      border-radius: 5px;
+                      border-radius: 4px;
                       background: #fff;
                       max-height: 400px;
                       min-height: 180px;
@@ -592,46 +596,40 @@
                 button
                 (click)="likePost(feed.id, i, feed.user.id)"
               >
-                <ion-icon
-                  src="../../../assets/iconsSvg/heart-outline.svg"
-                  *ngIf="feed.liked===0"
-                ></ion-icon>
-                <span *ngIf="feed.likes === 0">
-                  <ion-text style="color: #9e9bb0"> &nbsp; Like </ion-text>
-                </span>
-                <ion-icon
-                  src="../../../assets/iconsSvg/heart.svg"
-                  *ngIf="feed.liked !== 0"
-                ></ion-icon>
-                <span *ngIf="feed.likes !== 0">
-                  <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
-                </span>
+                <div *ngIf="feed.likes === 0" style="display: flex">
+                  <ion-icon
+                    src="../../../assets/iconsSvg/heart-outline.svg"
+                  ></ion-icon>
+                  <span>
+                    <ion-text style="color: #9e9bb0"> &nbsp; Like </ion-text>
+                  </span>
+                </div>
+                <div *ngIf="feed.likes > 0" style="display: flex">
+                  <ion-icon src="../../../assets/iconsSvg/heart.svg"></ion-icon>
+                  <span>
+                    <ion-text style="color: #ec5529"> &nbsp; Like </ion-text>
+                  </span>
+                </div>
               </ion-col>
               <ion-col
                 class="colLikeShare"
                 button
                 (click)="commentPost(feed, i)"
               >
-                <!-- src="../../../assets/iconsSvg/chatbubble-ellipses-outline.svg" -->
                 <ion-icon
                   style="color: #9e9bb0"
-                  name="chatbox-ellipses-outline"
+                  name="chatbox-outline"
                   *ngIf="feed.commented===0"
                 >
                 </ion-icon>
-                <span *ngIf="feed.comments === 0">
-                  <ion-text style="color: #9e9bb0"> &nbsp;Comments </ion-text>
-                </span>
-                <!-- src="../../../assets/iconsSvg/chatbubble-ellipses.svg" -->
                 <ion-icon
-                  name="chatbox-ellipses-outline"
+                  name="chatbox-outline"
                   *ngIf="feed.commented===1"
                   style="color: #9e9bb0"
                 ></ion-icon>
-                <span *ngIf="feed.comments > 0">
+                <span>
                   <ion-text style="color: #9e9bb0"> &nbsp;Comments </ion-text>
                 </span>
-                <!-- <span *ngIf="feed.comments > 0">&nbsp;{{feed.comments}}</span> -->
               </ion-col>
               <ion-col
                 class="colLikeShare"
@@ -770,6 +768,7 @@
                 </p>
               </ion-label>
               <ion-icon
+                style="color: #9e9bb0"
                 name="chatbox-ellipses-outline"
                 (click)="rootMsgPage(frnd.id)"
               >

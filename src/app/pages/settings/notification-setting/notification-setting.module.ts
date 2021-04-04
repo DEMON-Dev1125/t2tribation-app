@@ -17,4 +17,4 @@ import { NotificationSettingPage } from './notification-setting.page';
   ],
   declarations: [NotificationSettingPage]
 })
-export class NotificationSettingPageModule {}
+export class NotificationSettingPageModule { }

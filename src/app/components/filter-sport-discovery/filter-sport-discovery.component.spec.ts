@@ -9,7 +9,7 @@ describe('FilterSportDiscoveryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterSportDiscoveryComponent ],
+      declarations: [FilterSportDiscoveryComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -17,4 +17,4 @@ import { GuardianPage } from './guardian.page';
   ],
   declarations: [GuardianPage]
 })
-export class GuardianPageModule {}
+export class GuardianPageModule { }

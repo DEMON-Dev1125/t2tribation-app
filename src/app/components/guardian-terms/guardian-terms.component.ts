@@ -13,7 +13,7 @@ export class GuardianTermsComponent implements OnInit {
 
   gaurdName = 'Gurdian';
   minorName = 'Minor';
-  termsContent:string;
+  termsContent: string;
   termsString = 'Terms and Conditions';
   iAccpetTermsString = 'I Accept these terms';
   checkAcceptedTerms = false;
@@ -28,23 +28,23 @@ export class GuardianTermsComponent implements OnInit {
     if (this.utilServ.langSetupFLag) {
       termms = this.utilServ.getLangByCode('common.guardian.agreement');
     }
-      const timesGuard = this.occurrences(termms, '_%g_', false);
-      const timesMinor = this.occurrences(termms, '_%m_', false);
-      for (let i = 0; i < timesGuard; i++) {
-        termms = termms.replace('_%g_',`${this.gaurdName}`);        
-      }
-  
-      for (let i = 0; i < timesMinor; i++) {
-        termms = termms.replace('_%m_',`${this.minorName}`);        
-      }
-      let dateToday:string = this.utilServ.minToday();
-      termms = termms.replace('_%d_',`${dateToday}`)
-      
-      this.termsContent = termms;
+    const timesGuard = this.occurrences(termms, '_%g_', false);
+    const timesMinor = this.occurrences(termms, '_%m_', false);
+    for (let i = 0; i < timesGuard; i++) {
+      termms = termms.replace('_%g_', `${this.gaurdName}`);
+    }
+
+    for (let i = 0; i < timesMinor; i++) {
+      termms = termms.replace('_%m_', `${this.minorName}`);
+    }
+    let dateToday: string = this.utilServ.minToday();
+    termms = termms.replace('_%d_', `${dateToday}`)
+
+    this.termsContent = termms;
   }
   ngOnInit() {
     this.setTrems();
- 
+
   }
   setTrems() {
     // if (this.utilServ.langSetupFLag) {

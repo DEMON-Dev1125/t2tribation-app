@@ -77,7 +77,7 @@ export class CommentOnPostComponent implements OnInit {
       // console.log('commentData', this.commentData);
     });
   }
-  logScrolling(x){}
+  logScrolling(x) { }
   loadReply(x) {
     this.commentData[x].showReply = !(this.commentData[x].showReply);
   }
@@ -134,7 +134,7 @@ export class CommentOnPostComponent implements OnInit {
               this.replyData = null;
               this.commentText = null;
 
-             
+
             }
           });
       } else {
@@ -214,7 +214,7 @@ export class CommentOnPostComponent implements OnInit {
   getTimeFromNow(createdDate) {
     return moment(createdDate).fromNow();
   }
-  getLanguageStrings(){
+  getLanguageStrings() {
     if (this.utilServ.langSetupFLag) {
       this.replyString = this.utilServ.getLangByCode('post_reply');
       this.replysString = this.utilServ.getLangByCode('post_replys');

@@ -3,10 +3,10 @@
 }
 
 .seg_style {
-  border          : none !important;
+  border: none !important;
   background-color: #bdc1c5;
-  color           : white !important;
-  border-radius   : 5px !important;
+  color: white !important;
+  border-radius: 5px !important;
 }
 
 // .seg_btn{border-right: 2px solid darkgray;}
@@ -20,7 +20,7 @@
 
 .icon_location {
   vertical-align: middle;
-  color         : grey;
+  color: grey;
 }
 
 .item .item-content {
@@ -32,112 +32,112 @@
 }
 
 .btn_deny {
-  min-width    : 25%;
-  min-height   : 44%;
-  border       : 1px solid #d6d1d1;
+  min-width: 25%;
+  min-height: 44%;
+  border: 1px solid #d6d1d1;
   border-radius: 5px;
-  --background : white;
-  color        : black;
+  --background: white;
+  color: black;
 }
 
 .btn_accept {
   min-width: 25%;
-  height   : 44%;
+  height: 44%;
 }
 
 .searchbar-input-container {
   .sc-ion-searchbar-ios {
-    height : 28px !important;
+    height: 28px !important;
     contain: strict;
   }
 }
 
 .list-md {
-  margin-left   : 0;
-  margin-right  : 0;
-  margin-top    : 0;
-  margin-bottom : 0;
-  padding-left  : 0;
-  padding-right : 0;
-  padding-top   : 0px !important;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0px !important;
   padding-bottom: 0px !important;
-  background    : var(--ion-item-background, var(--ion-background-color, #fff));
+  background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
 .seg_btn {
-  text-transform      : capitalize;
+  text-transform: capitalize;
   --background-checked: #171434;
-  color               : #fff !important;
-  --border-color      : unset;
-  --indicator-color   : #112;
+  color: #fff !important;
+  --border-color: unset;
+  --indicator-color: #112;
 }
 
 .segment-button-checked {
-  background   : #171434;
-  color        : #fff !important;
+  background: #171434;
+  color: #fff !important;
   border-radius: 5px !important;
 }
 
 .dot-online {
-  height          : 10px;
-  width           : 10px;
+  height: 10px;
+  width: 10px;
   background-color: #5cb85c;
-  border-radius   : 50%;
-  display         : inline-block;
-  position        : relative;
-  bottom          : 20px;
-  left            : 28px;
-  z-index         : 9999;
-  opacity         : 5;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 28px;
+  z-index: 9999;
+  opacity: 5;
 }
 
 .dot-offline {
-  height          : 10px;
-  width           : 10px;
+  height: 10px;
+  width: 10px;
   background-color: grey;
-  border-radius   : 50%;
-  display         : inline-block;
-  position        : relative;
-  bottom          : 20px;
-  left            : 28px;
-  z-index         : 9999;
-  opacity         : 5;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 28px;
+  z-index: 9999;
+  opacity: 5;
 }
 
 // Anime css
 .fadeInUp {
-  -webkit-animation-name     : fadeInUp;
-  animation-name             : fadeInUp;
-  -webkit-animation-duration : 1s;
-  animation-duration         : 1s;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode        : both;
+  animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeInUp {
   0% {
-    opacity          : 0;
+    opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
-    transform        : translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
 
   100% {
-    opacity          : 1;
+    opacity: 1;
     -webkit-transform: none;
-    transform        : none;
+    transform: none;
   }
 }
 
 @keyframes fadeInUp {
   0% {
-    opacity          : 0;
+    opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
-    transform        : translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
 
   100% {
-    opacity          : 1;
+    opacity: 1;
     -webkit-transform: none;
-    transform        : none;
+    transform: none;
   }
 }

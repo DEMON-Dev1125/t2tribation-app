@@ -337,7 +337,7 @@ export class AboutTeamComponent implements OnInit {
           this.teamData.team_pic_small = data.message.thumbnail;
           localStorage.setItem('teamData', JSON.stringify(this.teamData));
           this.eventCustom.destroy('imageReady');
-        } else { 
+        } else {
           // console.log('can not get image data'); 
         }
       },
