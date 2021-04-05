@@ -755,12 +755,13 @@
                 </h2>
                 <p class="para_size" style="text-transform: capitalize">
                   <ion-icon
-                    src="location-outline"
+                    name="location-outline"
                     class="icon_location"
                   ></ion-icon
                   ><span *ngIf="frnd.country_code!='0'">
-                    {{frnd.city}}, {{frnd.country}} </span
-                  ><span
+                    {{frnd.city}}, {{frnd.country}}
+                  </span>
+                  <span
                     *ngIf="frnd.country_code=='0' || frnd.country_code=='' || frnd.country_code=='null'"
                   >
                     {{frnd.city}}</span
@@ -768,7 +769,7 @@
                 </p>
               </ion-label>
               <ion-icon
-                style="color: #9e9bb0"
+                style="color: #ec5529"
                 name="chatbox-ellipses-outline"
                 (click)="rootMsgPage(frnd.id)"
               >
